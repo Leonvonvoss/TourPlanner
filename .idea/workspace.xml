@@ -5,18 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87631700-3970-482c-a13d-c2a1a1721382" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/requirements/TourPlanner_Specification.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HelpDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HomeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HomeViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/fxml/home-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/fxml/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/TourPlannerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/fxml/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/fxml/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -44,10 +62,13 @@
       <recent name="C:\Users\leonv\Desktop\REPOS\SWEN\TourPlanner\src\main\resources\at\technikumwien\tourplanner\requirements" />
       <recent name="C:\Users\leonv\Desktop\REPOS\SWEN\TourPlanner\src\main\resources\at\technikumwien\tourplanner\fxml" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="at.technikumwien.tourplanner" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.HelloApplication" />
+    <configuration name="TourPlannerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.TourPlannerApplication" />
       <module name="TourPlanner" />
       <extension name="coverage">
         <pattern>
@@ -61,7 +82,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.TourPlannerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -75,6 +96,9 @@
       <updated>1646159432092</updated>
       <workItem from="1646159433041" duration="171000" />
       <workItem from="1646159869101" duration="1003000" />
+      <workItem from="1646221175281" duration="3350000" />
+      <workItem from="1646225893431" duration="825000" />
+      <workItem from="1646228137734" duration="518000" />
     </task>
     <servers />
   </component>
