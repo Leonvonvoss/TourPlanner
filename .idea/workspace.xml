@@ -5,16 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87631700-3970-482c-a13d-c2a1a1721382" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/requirements/TourPlanner_Specification.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/BL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/DAL/dal/DAL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/DAL/dal/Dao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/DAL/model/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/FXMLDependencyInjection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/view/ControllerViewFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/language/gui_strings_de.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/language/gui_strings_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/fxml/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HelpDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/view/HelpDialogViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/view/HomeViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/HomeViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/viewmodel/HomeViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/TourPlannerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/TourPlannerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/fxml/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/fxml/home-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/fxml/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/fxml/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/fxml/home-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="XML Properties File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,18 +62,42 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../INNO" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\leonv\Desktop\REPOS\SWEN\TourPlanner\src\main\java\at\technikumwien\tourplanner" />
+      <recent name="C:\Users\leonv\Desktop\REPOS\SWEN\TourPlanner\src\main\resources\at\technikumwien\tourplanner\language" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\leonv\Desktop\REPOS\SWEN\TourPlanner\src\main\resources\at\technikumwien\tourplanner" />
       <recent name="C:\Users\leonv\Desktop\REPOS\SWEN\TourPlanner\src\main\resources\at\technikumwien\tourplanner\requirements" />
       <recent name="C:\Users\leonv\Desktop\REPOS\SWEN\TourPlanner\src\main\resources\at\technikumwien\tourplanner\fxml" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="at.technikumwien.tourplanner" />
     </key>
   </component>
   <component name="RunManager" selected="Application.TourPlannerApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.HelloApplication" />
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.technikumwien.tourplanner.viewmodel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MediaLibApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.MediaLibApplication" />
       <module name="TourPlanner" />
       <extension name="coverage">
         <pattern>
@@ -62,9 +112,10 @@
     <configuration name="TourPlannerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.TourPlannerApplication" />
       <module name="TourPlanner" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\leonv\javafx-sdk-18\lib&quot; --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="at.technikumwien.tourplanner.*" />
+          <option name="PATTERN" value="at.technikumwien.tourplanner.viewmodel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -72,9 +123,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.HelloApplication" />
+      <item itemvalue="Application.MediaLibApplication" />
+      <item itemvalue="Application.TourPlannerApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TourPlannerApplication" />
+        <item itemvalue="Application.MediaLibApplication" />
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
@@ -89,6 +146,9 @@
       <updated>1646159432092</updated>
       <workItem from="1646159433041" duration="171000" />
       <workItem from="1646159869101" duration="1003000" />
+      <workItem from="1647867760037" duration="220000" />
+      <workItem from="1647885921939" duration="4683000" />
+      <workItem from="1647891488085" duration="4770000" />
     </task>
     <servers />
   </component>

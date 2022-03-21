@@ -10,44 +10,75 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.technikumwien.tourplanner.HomeView">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.technikumwien.tourplanner.view.HomeViewController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
             <MenuBar>
                <menus>
-                  <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
+                  <Menu fx:id="menuFile" mnemonicParsing="false" text="%Menu_File">
                      <items>
-                        <MenuItem fx:id="menuItemClose" mnemonicParsing="false" text="Close" />
+                        <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#onMenuItemCloseClick" text="%Menu_File_Quit">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/menu_close.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
                      </items>
                   </Menu>
-                  <Menu fx:id="menuExport" mnemonicParsing="false" text="Edit">
+                  <Menu fx:id="menuExport" mnemonicParsing="false" text="%Menu_Edit">
                      <items>
-                        <MenuItem fx:id="menuItemPDF" mnemonicParsing="false" onAction="#onMenuItemPDFClick" text="PDF" />
-                        <MenuItem fx:id="menuItemFile" mnemonicParsing="false" text="File" />
+                        <MenuItem fx:id="menuItemPDF" mnemonicParsing="false" text="%Menu_File_Export_PDF">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/menu_pdf.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <MenuItem fx:id="menuItemFile" mnemonicParsing="false" text="%Menu_File_Export_File">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/menu_file.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Options">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
+                  <Menu mnemonicParsing="false" text="%Menu_Options">
                      <items>
-                        <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAboutClick" text="About" />
+                        <MenuItem mnemonicParsing="false" text="%Menu_Options_Language" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="menuHelp" mnemonicParsing="false" text="%Menu_Help">
+                     <items>
+                        <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAboutClick" text="%Menu_Help_About">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/menu_about.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
                      </items>
                   </Menu>
                </menus>
             </MenuBar>
             <SplitPane dividerPositions="0.5" prefHeight="30.0" prefWidth="600.0">
-              <items>
-                  <TextField fx:id="leftVBoxTextField" alignment="CENTER" text="Search term" />
-                  <Button fx:id="leftVBoxSaveButton" mnemonicParsing="false" text="Search" />
-              </items>
+               <items>
+                  <TextField fx:id="topVBoxTextFieldSearch" alignment="CENTER" text="%SearchBar_SearchTextfield" />
+                  <Button fx:id="topVBoxButtonSearch" mnemonicParsing="false" onAction="#onTopVBoxButtonSearchClick" text="%SearchBar_SearchButton" />
+               </items>
             </SplitPane>
          </children>
       </VBox>
@@ -55,36 +86,36 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tours ">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%Text_Tours">
                <effect>
                   <Glow />
                </effect>
             </Text>
-            <ListView />
+            <ListView fx:id="leftVBoxListViewTours" />
          </children>
       </VBox>
    </left>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title: ">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%Text_Title">
                <effect>
                   <Glow />
                </effect>
             </Text>
             <ListView fx:id="rightVBoxListView" prefHeight="200.0" prefWidth="200.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Logs: ">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%Text_Logs">
                <effect>
                   <Glow />
                </effect>
             </Text>
             <TableView prefHeight="200.0" prefWidth="200.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="Date" />
-                <TableColumn prefWidth="75.0" text="Duration" />
-                  <TableColumn prefWidth="75.0" text="Distance" />
+               <columns>
+                  <TableColumn prefWidth="75.0" text="%Text_TableView_Date" />
+                  <TableColumn prefWidth="75.0" text="%Text_TableView_Duration" />
+                  <TableColumn prefWidth="75.0" text="%Text_TableView_Distance" />
                   <TableColumn prefWidth="272.6666564941406" text="..." />
-              </columns>
+               </columns>
             </TableView>
          </children>
       </VBox>

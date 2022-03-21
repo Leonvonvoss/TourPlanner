@@ -1,4 +1,4 @@
-package at.technikumwien.tourplanner;
+package at.technikumwien.tourplanner.viewmodel;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
