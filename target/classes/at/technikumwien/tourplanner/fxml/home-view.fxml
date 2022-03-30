@@ -109,7 +109,7 @@
                   <Glow />
                </effect>
             </Text>
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
                <columns>
                   <TableColumn prefWidth="75.0" text="%Text_TableView_Date" />
                   <TableColumn prefWidth="75.0" text="%Text_TableView_Duration" />

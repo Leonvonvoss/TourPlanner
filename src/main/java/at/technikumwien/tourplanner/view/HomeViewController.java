@@ -1,5 +1,6 @@
 package at.technikumwien.tourplanner.view;
 
+import at.technikumwien.tourplanner.config.Configuration;
 import at.technikumwien.tourplanner.viewmodel.HomeViewModel;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -12,8 +13,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
-
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -33,6 +32,7 @@ public class HomeViewController implements Initializable {
     @FXML private TextField topVBoxTextFieldSearch;
     @FXML private Button topVBoxButtonSearch;
     @FXML private ListView<String> leftVBoxListViewTours;
+    @FXML private TableView tableView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,6 +40,7 @@ public class HomeViewController implements Initializable {
         leftVBoxListViewTours.setItems(leftVBoxListViewListItems);
         topVBoxTextFieldSearch.textProperty().bindBidirectional(homeViewModel.inputProperty());
         topVBoxButtonSearch.disableProperty().bind(homeViewModel.enabledProperty());
+        tableView.setPlaceholder(new Label(". . ."));
     }
 
     public HomeViewController(HomeViewModel homeViewModel) {
