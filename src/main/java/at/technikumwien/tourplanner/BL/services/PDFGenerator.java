@@ -12,9 +12,6 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.element.Text;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 
