@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.technikumwien.tourplanner.view.AddTourViewController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="tourTitleField"/>
+            <TextField fx:id="tourStartField"/>
+            <TextField fx:id="tourDestinationField"/>
+            <TextArea fx:id="tourDescriptionField" prefHeight="200.0" prefWidth="200.0" promptText="Enter a description..." />
+            <ComboBox fx:id="tourTransportBox" prefWidth="150.0" promptText="Select transportation mode" />
+            <Button mnemonicParsing="false" onAction="#saveTourEntryButtonClick" text="Save Tour" />
+            <Button mnemonicParsing="false" onAction="#cancelTourEntryButtonClick" text="Cancel" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

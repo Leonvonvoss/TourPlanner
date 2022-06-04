@@ -74,8 +74,9 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <SplitPane dividerPositions="0.5" prefHeight="30.0" prefWidth="600.0">
+            <SplitPane dividerPositions="0.5, 0.5" prefHeight="30.0" prefWidth="600.0">
                <items>
+                  <Button fx:id="topVBoxButtonAddTour" mnemonicParsing="false" onAction="#onTopVBoxButtonAddTourClick" text="Add Tour" />
                   <TextField fx:id="topVBoxTextFieldSearch" alignment="CENTER" text="%SearchBar_SearchTextfield" />
                   <Button fx:id="topVBoxButtonSearch" mnemonicParsing="false" onAction="#onTopVBoxButtonSearchClick" text="%SearchBar_SearchButton" />
                </items>
