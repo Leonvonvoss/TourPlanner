@@ -17,6 +17,10 @@ public class TourLog {
     private int rating;
     private String totaltime;
 
+    public TourLog(int logid) {
+        this.logid = logid;
+    }
+
     public TourLog(int logid, int tourid_fk) {
         this.logid = logid;
         this.tourid_fk = tourid_fk;

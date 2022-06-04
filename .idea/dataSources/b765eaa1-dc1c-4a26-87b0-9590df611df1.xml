@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.39">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>4500</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4584</IntrospectionStateNumber>
       <ServerVersion>14.1</ServerVersion>
       <StartupTime>1654336201</StartupTime>
       <TimeZones>true ACDT
@@ -801,10 +801,10 @@ false Zulu
 13388||10|C|G
 13388||-9223372036854775808|U|G
 13388||10|U|G</Grants>
-      <IntrospectionStateNumber>4500</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4584</IntrospectionStateNumber>
       <ObjectId>13754</ObjectId>
-      <Relations>sequence|table|65630|65631|1
-sequence|table|65606|65607|1
+      <Relations>sequence|table|65669|65670|1
+sequence|table|65678|65679|1
 </Relations>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4225,21 +4225,21 @@ sequence|table|65606|65607|1
     <schema id="261" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>4500</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4584</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>526</StateNumber>
       <OwnerName>postgres</OwnerName>
     </schema>
     <sequence id="262" parent="261" name="tour_tourid_seq">
       <DataType>integer|0s</DataType>
-      <ObjectId>65630</ObjectId>
-      <StateNumber>4497</StateNumber>
+      <ObjectId>65678</ObjectId>
+      <StateNumber>4581</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="263" parent="261" name="tourlog_logid_seq">
       <DataType>integer|0s</DataType>
-      <ObjectId>65606</ObjectId>
-      <StateNumber>4477</StateNumber>
+      <ObjectId>65669</ObjectId>
+      <StateNumber>4563</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <table id="264" parent="261" name="cards">
@@ -4249,14 +4249,14 @@ sequence|table|65606|65607|1
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="265" parent="261" name="tour">
-      <ObjectId>65631</ObjectId>
-      <StateNumber>4497</StateNumber>
+      <ObjectId>65679</ObjectId>
+      <StateNumber>4581</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="266" parent="261" name="tourlog">
-      <ObjectId>65607</ObjectId>
-      <StateNumber>4477</StateNumber>
+      <ObjectId>65670</ObjectId>
+      <StateNumber>4563</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4344,139 +4344,139 @@ sequence|table|65606|65607|1
       <DefaultExpression>nextval(&apos;tour_tourid_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="279" parent="265" name="name">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="280" parent="265" name="description">
       <DataType>varchar|0s</DataType>
       <Position>3</Position>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="281" parent="265" name="totaldistance">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="282" parent="265" name="totalduration">
       <DataType>varchar|0s</DataType>
       <Position>5</Position>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="283" parent="265" name="locationfrom">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="284" parent="265" name="locationto">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="285" parent="265" name="transporttype">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="286" parent="265" name="tour_pkey">
       <ColNames>tourid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>65637</ObjectId>
+      <ObjectId>65685</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>4497</StateNumber>
+      <StateNumber>4581</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <index id="287" parent="265" name="tourid_fk">
       <ColNames>tourid</ColNames>
-      <ObjectId>65639</ObjectId>
-      <StateNumber>4499</StateNumber>
+      <ObjectId>65687</ObjectId>
+      <StateNumber>4583</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="288" parent="265" name="tour_pkey">
       <ColNames>tourid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>65638</ObjectId>
+      <ObjectId>65686</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>4497</StateNumber>
-      <UnderlyingIndexId>65637</UnderlyingIndexId>
+      <StateNumber>4581</StateNumber>
+      <UnderlyingIndexId>65685</UnderlyingIndexId>
     </key>
     <column id="289" parent="266" name="logid">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;tourlog_logid_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>4477</StateNumber>
+      <StateNumber>4563</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="290" parent="266" name="tourid_fk">
       <DataType>integer|0s</DataType>
       <Position>2</Position>
-      <StateNumber>4477</StateNumber>
+      <StateNumber>4563</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="291" parent="266" name="datetime">
       <DataType>timestamp|0s</DataType>
       <Position>3</Position>
-      <StateNumber>4477</StateNumber>
+      <StateNumber>4563</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="292" parent="266" name="comment">
       <DataType>varchar|0s</DataType>
       <Position>4</Position>
-      <StateNumber>4477</StateNumber>
+      <StateNumber>4563</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="293" parent="266" name="difficulty">
       <DataType>integer|0s</DataType>
       <Position>5</Position>
-      <StateNumber>4477</StateNumber>
+      <StateNumber>4563</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="294" parent="266" name="rating">
       <DataType>integer|0s</DataType>
       <Position>6</Position>
-      <StateNumber>4477</StateNumber>
+      <StateNumber>4563</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="295" parent="266" name="totaltime">
       <DataType>varchar|0s</DataType>
       <Position>7</Position>
-      <StateNumber>4477</StateNumber>
+      <StateNumber>4563</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="296" parent="266" name="tourlog_pkey">
       <ColNames>logid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>65613</ObjectId>
+      <ObjectId>65676</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>4477</StateNumber>
+      <StateNumber>4563</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="297" parent="266" name="tourlog_pkey">
       <ColNames>logid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>65614</ObjectId>
+      <ObjectId>65677</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>4477</StateNumber>
-      <UnderlyingIndexId>65613</UnderlyingIndexId>
+      <StateNumber>4563</StateNumber>
+      <UnderlyingIndexId>65676</UnderlyingIndexId>
     </key>
     <column id="298" parent="267" name="username">
       <DataType>varchar|0s</DataType>

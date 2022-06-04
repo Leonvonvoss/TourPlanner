@@ -15,6 +15,7 @@ public class TourService {
 
         tourDao.saveTour(new TourModel(1, "BigCityLife", "Super nice tour in Wien", "10km", "02:00:00", "Vienna Hauptbahnhof", "Vienna Westbahnhof", "Zu Fuß"));
         tourDao.saveTour(new TourModel(1, "TheBIGFive", "Super nice tour in Africa", "100km", "20:00:00", "Captown", "Outdoorshoorn", "Auto"));
+        tourDao.saveTour(new TourModel(1, "Namibia", "Super nice tour in Namiba / Africa", "100km", "24:00:00", "Captown", "Windhoek", "Plane"));
 
         System.out.println("2: #########################");
 
@@ -42,6 +43,11 @@ public class TourService {
         System.out.println("6: #########################");
 
         tourDao.updateTourById(new TourModel(1, "BIGViennaLife", "Super nice tour in Wien", "20km", "04:00:00", "Vienna Hauptbahnhof", "Vienna Westbahnhof", "Zu Fuß"));
+
+
+        System.out.println("7: #########################");
+
+        tourDao.deleteTourById(new TourModel(3, "BIGViennaLife", "Super nice tour in Wien", "20km", "04:00:00", "Vienna Hauptbahnhof", "Vienna Westbahnhof", "Zu Fuß"));
     }
 
 }

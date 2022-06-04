@@ -65,6 +65,7 @@ public class AddTourViewController  extends Application implements Initializable
     }
 
     @FXML
+
     public void saveTourEntryButtonClick() throws ExecutionException, InterruptedException, JsonProcessingException {
         if(viewModel.saveTour()) {
             Stage stage = (Stage) tourTitleField.getScene().getWindow();
