@@ -2,15 +2,20 @@ package at.technikumwien.tourplanner.BL.managers;
 
 import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
+import at.technikumwien.tourplanner.BL.services.ApiClient;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class TourManagerImplementation implements TourManager {
 
         //private static final Logger logger = LogManager.getLogger(TourManagerImplementation.class);
         @Override
-        public void createTourModel(TourModel receivedtour) {
+        public void createTourModel(TourModel receivedtour) throws ExecutionException, InterruptedException, JsonProcessingException {
+                var result= ApiClient.getTourAPIData(receivedtour.getLocationfrom(), receivedtour.getLocationto(), receivedtour.getName(), receivedtour.getTransporttype());
+                System.out.println("Result: " + result.getValue());
                 System.out.println(receivedtour);
                 System.out.println(receivedtour.getName());
                 System.out.println(receivedtour.getDescription());

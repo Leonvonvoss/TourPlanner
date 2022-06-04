@@ -3,6 +3,7 @@ package at.technikumwien.tourplanner.view;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.managers.TourManager;
 import at.technikumwien.tourplanner.viewmodel.AddTourViewModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 
 public class AddTourViewController  extends Application implements Initializable {
 
@@ -63,11 +65,12 @@ public class AddTourViewController  extends Application implements Initializable
     }
 
     @FXML
-    public void saveTourEntryButtonClick() {
-        /*if(viewModel.saveTour()) {
+
+    public void saveTourEntryButtonClick() throws ExecutionException, InterruptedException, JsonProcessingException {
+        if(viewModel.saveTour()) {
             Stage stage = (Stage) tourTitleField.getScene().getWindow();
             stage.close();
-        }*/
+        }
     }
 
     @FXML
