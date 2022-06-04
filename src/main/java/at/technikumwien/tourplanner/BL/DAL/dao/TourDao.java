@@ -153,31 +153,6 @@ public class TourDao {
         return false;
     }
 
-    public boolean deleteTourById(TourModel tourModel) {
-        try ( PreparedStatement statement = DBConnection.getInstance().prepareStatement("""
-                DELETE FROM tourlog WHERE tourid_fk = ?;
-                """ )) {
-
-            statement.setInt(1, tourModel.getTourId() );
-            statement.execute();
-
-            try ( PreparedStatement statementTwo = DBConnection.getInstance().prepareStatement("""
-                DELETE FROM tour WHERE tourid = ?;
-                """ )) {
-
-                statementTwo.setInt(1, tourModel.getTourId() );
-                statementTwo.execute();
-
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-             }
-            return true;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return false;
-    }
-
     public boolean updateTourById(TourModel tourModel) {
         try ( PreparedStatement statement = DBConnection.getInstance().prepareStatement("""
                 UPDATE tour
@@ -199,6 +174,27 @@ public class TourDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return false;
+    }
+
+    public boolean deleteTourById(TourModel tourModel) {
+
+        TourLogDao tourLogDao = new TourLogDao();
+
+        if(tourLogDao.deleteTourLogsOfTourByTourId(tourModel)) { //deletes all tourlogs with tourid of tourmodel
+            try ( PreparedStatement statement = DBConnection.getInstance().prepareStatement("""
+                    DELETE FROM tour WHERE tourid = ?;
+                """ )) {
+
+                statement.setInt(1, tourModel.getTourId() );
+                statement.execute();
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            return true;
+        }
+
         return false;
     }
 

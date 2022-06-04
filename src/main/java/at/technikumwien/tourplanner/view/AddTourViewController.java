@@ -64,10 +64,10 @@ public class AddTourViewController  extends Application implements Initializable
 
     @FXML
     public void saveTourEntryButtonClick() {
-        if(viewModel.saveTour()) {
+        /*if(viewModel.saveTour()) {
             Stage stage = (Stage) tourTitleField.getScene().getWindow();
             stage.close();
-        }
+        }*/
     }
 
     @FXML
