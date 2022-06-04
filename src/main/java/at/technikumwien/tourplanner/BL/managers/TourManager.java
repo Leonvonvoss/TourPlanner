@@ -2,8 +2,10 @@ package at.technikumwien.tourplanner.BL.managers;
 
 import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public interface TourManager {
 
@@ -11,7 +13,7 @@ public interface TourManager {
     List<TourModel> getTourModels();
     TourModel getTourModel(String name);
     TourModel getTourModel(int id);
-    void createTourModel(TourModel TourModel);
+    void createTourModel(TourModel TourModel) throws ExecutionException, InterruptedException, JsonProcessingException;
     void cloneTourModel(TourModel TourModel);
     void modifyTourModel(TourModel TourModel);
     void deleteTourModel(TourModel TourModel);

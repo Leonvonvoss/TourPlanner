@@ -3,10 +3,13 @@ package at.technikumwien.tourplanner.viewmodel;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.managers.TourManager;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.sun.scenario.effect.Effect;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.util.concurrent.ExecutionException;
 
 public class AddTourViewModel {
 
@@ -96,7 +99,7 @@ public class AddTourViewModel {
         tourTransportation.set(currentTour.getTransporttype());
     }
 
-    public boolean saveTour() {
+    public boolean saveTour() throws ExecutionException, InterruptedException, JsonProcessingException {
         if (validateFields()) {
             //if (manager.getTour() == null)
             //{

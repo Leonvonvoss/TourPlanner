@@ -1,5 +1,8 @@
 package at.technikumwien.tourplanner.BL.services;
 
+import at.technikumwien.tourplanner.config.Configuration;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.util.Pair;
 import netscape.javascript.JSObject;
 
@@ -12,6 +15,7 @@ import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 import static java.nio.file.StandardOpenOption.WRITE;
@@ -21,47 +25,14 @@ import org.json.*;
 
 public class ApiClient {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        String connectionURL = "https://open.mapquestapi.com/directions/v2/route?key=PRlLqBQT4IAjPDI64URtUOt6G6LmFPeP&from=Vienna&to=Salzburg";
-        ApiClient apiClient = new ApiClient(connectionURL);
-        apiClient.sendRequestAsync(connectionURL);
-    }
-
-    public ApiClient(String connectionURL) throws IOException, InterruptedException {
-
-    }
-
-    private void sendRequest(String connectionURL) throws IOException, InterruptedException {
-        URI resourceURL = URI.create(connectionURL);
-        HttpClient client = HttpClient.newBuilder().build();
-        HttpRequest request = HttpRequest.newBuilder(resourceURL).GET().build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        JSONObject json = new JSONObject(response.body());
-        JSONObject route = json.getJSONObject("route");
-        System.out.println(route.get("distance"));
-    }
-
-    private void sendRequestAsync(String connectionURL) throws IOException, InterruptedException {
-        URI resourceURL = URI.create(connectionURL);
-        HttpClient client = HttpClient.newBuilder().build();
-        HttpRequest request = HttpRequest.newBuilder(resourceURL).GET().build();
-        CompletableFuture<HttpResponse<String>> httpResponseCompletableFuture = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
-        httpResponseCompletableFuture.thenApply(HttpResponse::body).thenAccept(System.out::println);
-        httpResponseCompletableFuture.join();
-
-    }
-
-    private static void handleResponse(String response) {
-        JSONObject json = new JSONObject(response);
-        String pretty = json.toString(4);
-        System.out.println(pretty);
-    }
-    /*private ApiClient() {
+    private ApiClient() {
         throw new IllegalStateException("Utility class");
     }
 
-    public static Pair<String,Double> getTourAPIData(String from, String to, String name, String mode) {
-        String key = getKey();
+    public static Pair<String,String> getTourAPIData(String from, String to, String name, String mode) throws ExecutionException, InterruptedException, JsonProcessingException {
+        Configuration configuration =Configuration.Instance();
+        String key = configuration.getProperty("apikey");
+        String imgdir = configuration.getProperty("imgdir");
 
         // create a client
         var client = HttpClient.newHttpClient();
@@ -81,7 +52,7 @@ public class ApiClient {
         String routeRequestURL = "https://www.mapquestapi.com/directions/v2/route?key=" + key +
                 "&from=" + from.replaceAll("[^a-zA-Z0-9äöüÄÖÜß_,\\- ]", "").replace(" ", "+")
                 + "&to=" + to.replaceAll("[^a-zA-Z0-9äöüÄÖÜß_,\\- ]", "").replace(" ", "+") + "&routeType=" + routeType;
-
+        System.out.println(routeRequestURL);
         HttpRequest routeRequest = HttpRequest.newBuilder(
                         URI.create(routeRequestURL))
                 .timeout(Duration.of(10, SECONDS))
@@ -103,14 +74,17 @@ public class ApiClient {
         var boundingBox = "";
         var sessionID = "";
 
-        var distance = 0.0;
+        String distance = "0.0";
 
         var mapper = new ObjectMapper();
 
             var rootNode  = mapper.readTree(responseBody);
             var routeNode = rootNode.path("route");
+            System.out.println("Distance single " + routeNode.path("distance"));
+        System.out.println("Distance single to string" + routeNode.path("distance").toString());
+        System.out.println("Distance single to Textvalie" + routeNode.path("distance").textValue());
             sessionID = routeNode.path("sessionId").textValue();
-            distance = routeNode.path("distance").doubleValue();
+            distance = routeNode.path("distance").toString();
             var boundingBoxNode = routeNode.path("boundingBox");
             boundingBox += boundingBoxNode.path("lr").path("lat").doubleValue()+",";
             boundingBox += boundingBoxNode.path("lr").path("lng").doubleValue()+",";
@@ -130,15 +104,15 @@ public class ApiClient {
                 .build();
 
         String fileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new java.util.Date());
-        var file = Path.of(getImageDir()+fileName+"_"+name.replaceAll("[^a-zA-Z0-9äöüÄÖÜß_\\-]", "")+".jpg");
+        var file = Path.of(imgdir+fileName+"_"+name.replaceAll("[^a-zA-Z0-9äöüÄÖÜß_\\-]", "")+".jpg");
         file.toFile().getParentFile().mkdirs();
         CompletableFuture<HttpResponse<Path>> mapResponseFuture = client.sendAsync(mapRequest, HttpResponse.BodyHandlers.ofFile(file,  CREATE, WRITE));
         var mapPath = "";
         var mapResponse = mapResponseFuture.get();
         mapPath = mapResponse.body().toString();
 
-
+        System.out.println("Mappath; " + mapPath);
         return new Pair<>(mapPath,distance);
-    }*/
+    }
 
 }
