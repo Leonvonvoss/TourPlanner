@@ -84,25 +84,24 @@ public class AddTourViewModel {
         this.manager = manager;
         System.out.println("In inititdata: " + this.manager);
     }
-    /*
+
     public void initData(TourManager manager, TourModel currentTour) {
         this.manager = manager;
         this.currentTour = currentTour;
 
         tourTitle.set(currentTour.getName());
-        tourOrigin.set(currentTour.getOrigin());
-        tourDestination.set(currentTour.getDestination());
+        tourOrigin.set(currentTour.getLocationfrom());
+        tourDestination.set(currentTour.getLocationto());
         tourDescription.set(currentTour.getDescription());
-        tourTransportation.set(currentTour.getModeOfTransportation());
+        tourTransportation.set(currentTour.getTransporttype());
     }
-*/
-    /*
+
     public boolean saveTour() {
         if (validateFields()) {
             //if (manager.getTour() == null)
             //{
             this.currentTour = new TourModel(tourTitle.get(), tourDescription.get(), tourOrigin.get(), tourDestination.get(), tourTransportation.get());
-            manager.createTour(currentTour);
+            manager.createTourModel(currentTour);
             System.out.println("activated");
            /* }
             else
@@ -117,12 +116,12 @@ public class AddTourViewModel {
 
             System.out.println(getTourTitle());
             return true;
-
+*/
         }
         return false;
     }
-    /
-     */
+
+
 
     //private final Effect invalidEffect = new DropShadow(BlurType.GAUSSIAN, Color.RED, 4, 0.0, 0, 0);
 

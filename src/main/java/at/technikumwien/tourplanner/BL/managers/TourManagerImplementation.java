@@ -9,8 +9,8 @@ import java.util.List;
 public class TourManagerImplementation implements TourManager {
 
         //private static final Logger logger = LogManager.getLogger(TourManagerImplementation.class);
-
-        public void createTour(TourModel receivedtour) {
+        @Override
+        public void createTourModel(TourModel receivedtour) {
                 System.out.println(receivedtour);
                 System.out.println(receivedtour.getName());
                 System.out.println(receivedtour.getDescription());
@@ -35,10 +35,6 @@ public class TourManagerImplementation implements TourManager {
                 return null;
         }
 
-        @Override
-        public void createTourModel(TourModel TourModel) {
-
-        }
 
         @Override
         public void cloneTourModel(TourModel TourModel) {
