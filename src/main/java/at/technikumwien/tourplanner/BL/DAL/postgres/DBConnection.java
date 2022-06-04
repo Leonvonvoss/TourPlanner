@@ -13,6 +13,13 @@ public class DBConnection implements Closeable {
     private String username;
     private String password;
 
+    public static DBConnection getInstance() {
+        if(instance == null) {
+            instance = new DBConnection();
+        }
+        return instance;
+    }
+
     /**
      * Loads the PostgreSql JDBC-driver
      * Don't forget to add the dependency in the pom.xml, like
@@ -30,18 +37,13 @@ public class DBConnection implements Closeable {
             this.password = configuration.getProperty("password");
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
-            System.err.println("PostgreSQL JDBC driver not found");
+            System.err.println("PostgresSQL JDBC driver not found");
             e.printStackTrace();
         }
     }
 
-    public Connection connect() throws SQLException {
-        return DriverManager.getConnection(connectionString, username, password);
-    }
-
-
     public Connection getConnection() {
-        if( connection==null ) {
+        if(connection == null) {
             try {
                 connection = DBConnection.getInstance().connect();
             } catch (SQLException throwables) {
@@ -51,18 +53,28 @@ public class DBConnection implements Closeable {
         return connection;
     }
 
+    /*
+    ** Helper function for getConnection()
+     */
+    private Connection connect() throws SQLException {
+        return DriverManager.getConnection(connectionString, username, password);
+    }
 
     public PreparedStatement prepareStatement(String sql) throws SQLException {
         return getConnection().prepareStatement(sql);
     }
 
-    public boolean executeSql(String sql) throws SQLException {
+    public static boolean executeSQL(Connection connection, String sql) throws SQLException {
+        return executeSql(connection, sql, false);
+    }
+
+    public boolean executeSQL(String sql) throws SQLException {
         return executeSql(getConnection(), sql, false);
     }
 
     public static boolean executeSql(Connection connection, String sql, boolean ignoreIfFails) throws SQLException {
         try ( Statement statement = connection.createStatement() ) {
-            statement.execute(sql );
+            statement.execute(sql);
             return true;
         } catch (SQLException e) {
             if( !ignoreIfFails )
@@ -71,14 +83,9 @@ public class DBConnection implements Closeable {
         }
     }
 
-    public static boolean executeSql(Connection connection, String sql) throws SQLException {
-        return executeSql(connection, sql, false);
-    }
-
-
     @Override
     public void close() {
-        if( connection!=null ) {
+        if(connection != null) {
             try {
                 connection.close();
             } catch (SQLException throwables) {
@@ -86,14 +93,5 @@ public class DBConnection implements Closeable {
             }
             connection = null;
         }
-    }
-
-
-
-
-    public static DBConnection getInstance() {
-        if(instance==null)
-            instance = new DBConnection();
-        return instance;
     }
 }
