@@ -1,4 +1,4 @@
-package at.technikumwien.tourplanner.BL.services;
+package at.technikumwien.tourplanner.BL.managers;
 
 public class TourManagerFactory {
     private TourManagerFactory() {}

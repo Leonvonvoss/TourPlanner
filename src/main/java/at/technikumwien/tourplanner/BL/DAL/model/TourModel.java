@@ -31,6 +31,15 @@ public class TourModel {
         this.name = name;
     }
 
+    public TourModel(String name, String description, String locationfrom, String locationto, String transporttype) {
+        this.name = name;
+        this.description = description;
+        this.locationfrom = locationfrom;
+        this.locationto = locationto;
+        this.transporttype = transporttype;
+    }
+
+
     public TourModel(String name) {
         this.name = name;
     }

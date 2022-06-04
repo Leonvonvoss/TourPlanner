@@ -1,33 +1,18 @@
 package at.technikumwien.tourplanner.view;
 
-import at.technikumwien.tourplanner.BL.services.TourManager;
-import at.technikumwien.tourplanner.Tours.Tour;
+import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
+import at.technikumwien.tourplanner.BL.managers.TourManager;
 import at.technikumwien.tourplanner.viewmodel.AddTourViewModel;
-import com.sun.scenario.effect.DropShadow;
-import com.sun.scenario.effect.Effect;
 import javafx.application.Application;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BlurType;
 import javafx.stage.Stage;
-import org.slf4j.event.Level;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 public class AddTourViewController  extends Application implements Initializable {
 
@@ -73,8 +58,8 @@ public class AddTourViewController  extends Application implements Initializable
         viewModel.initData(manager);
     }
 
-    public void initData(TourManager manager, Tour currentTour) {
-        viewModel.initData(manager,currentTour);
+    public void initData(TourManager manager, TourModel currentTour) {
+        viewModel.initData(manager);
     }
 
     @FXML

@@ -1,6 +1,6 @@
 package at.technikumwien.tourplanner.viewmodel;
 
-import at.technikumwien.tourplanner.BL.services.TourManager;
+import at.technikumwien.tourplanner.BL.managers.TourManager;
 import at.technikumwien.tourplanner.view.AddTourViewController;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
