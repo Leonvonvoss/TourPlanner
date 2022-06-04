@@ -22,6 +22,8 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+.idea
+
 .idea/workspace.xml
 target/classes/
 target/classes/at/technikumwien/tourplanner/BL/DAL/model/TourLog.class

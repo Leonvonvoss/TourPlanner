@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="63f9004a-a09b-4b23-b6ac-2647f7bda603" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TourPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/model/TourLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/model/TourLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/model/TourModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/model/TourModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/services/TourService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/services/TourService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/view/AddTourViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/view/AddTourViewController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1654358707312</updated>
-      <workItem from="1654358709204" duration="198000" />
+      <workItem from="1654358709204" duration="255000" />
     </task>
     <servers />
   </component>
