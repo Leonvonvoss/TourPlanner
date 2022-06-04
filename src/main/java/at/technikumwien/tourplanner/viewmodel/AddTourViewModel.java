@@ -1,7 +1,8 @@
 package at.technikumwien.tourplanner.viewmodel;
 
-import at.technikumwien.tourplanner.BL.services.TourManager;
-import at.technikumwien.tourplanner.Tours.Tour;
+import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
+import at.technikumwien.tourplanner.BL.managers.TourManager;
+
 import com.sun.scenario.effect.Effect;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
@@ -23,7 +24,7 @@ public class AddTourViewModel {
     private final ObjectProperty<Effect> tourDescriptionEffect = new SimpleObjectProperty<>();
     private final ObjectProperty<Effect> tourTransportationEffect = new SimpleObjectProperty<>();
 
-    private Tour currentTour;
+    private TourModel currentTour;
 
     private TourManager manager;
 
@@ -83,8 +84,8 @@ public class AddTourViewModel {
         this.manager = manager;
         System.out.println("In inititdata: " + this.manager);
     }
-
-    public void initData(TourManager manager, Tour currentTour) {
+    /*
+    public void initData(TourManager manager, TourModel currentTour) {
         this.manager = manager;
         this.currentTour = currentTour;
 
@@ -94,12 +95,13 @@ public class AddTourViewModel {
         tourDescription.set(currentTour.getDescription());
         tourTransportation.set(currentTour.getModeOfTransportation());
     }
-
+*/
+    /*
     public boolean saveTour() {
         if (validateFields()) {
             //if (manager.getTour() == null)
             //{
-            this.currentTour = new Tour(tourTitle.get(), tourDescription.get(), tourOrigin.get(), tourDestination.get(), tourTransportation.get());
+            this.currentTour = new TourModel(tourTitle.get(), tourDescription.get(), tourOrigin.get(), tourDestination.get(), tourTransportation.get());
             manager.createTour(currentTour);
             System.out.println("activated");
            /* }
@@ -113,12 +115,14 @@ public class AddTourViewModel {
                 manager.modifyTour(currentTour);
             }
 
-            System.out.println(getTourTitle());*/
+            System.out.println(getTourTitle());
             return true;
 
         }
         return false;
     }
+    /
+     */
 
     //private final Effect invalidEffect = new DropShadow(BlurType.GAUSSIAN, Color.RED, 4, 0.0, 0, 0);
 

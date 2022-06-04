@@ -1,18 +1,13 @@
 package at.technikumwien.tourplanner.view;
 
-import at.technikumwien.tourplanner.BL.services.TourManager;
-import at.technikumwien.tourplanner.BL.services.TourManagerFactory;
-import at.technikumwien.tourplanner.FXMLDependencyInjection;
-import at.technikumwien.tourplanner.TourPlannerApplication;
-import at.technikumwien.tourplanner.config.Configuration;
+import at.technikumwien.tourplanner.BL.managers.TourManager;
+import at.technikumwien.tourplanner.BL.managers.TourManagerFactory;
 import at.technikumwien.tourplanner.viewmodel.HomeViewModel;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -20,14 +15,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.util.Locale;
-import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 public class HomeViewController implements Initializable {
 
