@@ -13,15 +13,26 @@ import java.util.regex.Pattern;
 @ToString
 public class TourModel {
 
-    private String tourId;
-    private String description;
-    private float distance;
-    private String from;
-    private String picture;
+    private int tourId;
     private String name;
-    private String time;
-    private String to;
-    private String type;
+    private String description;
+    private String totaldistance;
+    private String totalduration;
+    private String locationfrom;
+    private String locationto;
+    private String transporttype;
 
+    public TourModel(int tourId) {
+        this.tourId = tourId;
+    }
+
+    public TourModel(int tourId, String name) {
+        this.tourId = tourId;
+        this.name = name;
+    }
+
+    public TourModel(String name) {
+        this.name = name;
+    }
 }
 

@@ -5,20 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87631700-3970-482c-a13d-c2a1a1721382" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dao/TourDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dto/TourDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/model/TourModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/postgres/DBConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/database/tourplanner.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_12_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_17_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_17_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_4_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_inline_4_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_18_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_18_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_18_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_18_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_18_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_18_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_18_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_18_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_3_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_2_0_0_alpha0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_2_0_0_alpha0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/services/TourService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1/storage_v2/_src_/database/postgres.edMnLQ/schema/tours.G-GWBg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1/storage_v2/_src_/database/postgres.edMnLQ/schema/tours.G-GWBg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/services/PDFGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/services/PDFGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/DAL/dal/DAL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/DAL/dal/Dao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/DAL/model/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/DAL/postgres/PostgresDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/configs/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dao/TourDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dao/TourDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dto/TourDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/model/TourModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/model/TourModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/postgres/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/postgres/DBConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +84,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/leonv/Desktop/REPOS/SWEN/TourPlanner/src/main/resources/at/technikumwien/tourplanner/database",
+    "last_opened_file_path": "C:/Users/leonv/Desktop/REPOS/SWEN/MVVM_DEMO",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   },
   "keyToStringList": {
@@ -93,20 +115,7 @@
       <recent name="at.technikumwien.tourplanner.BL.DAL.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Database Script.tourplanner.sql">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.HelloApplication" />
-      <module name="TourPlanner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.technikumwien.tourplanner.viewmodel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.TourService">
     <configuration name="MediaLibApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.MediaLibApplication" />
       <module name="TourPlanner" />
@@ -147,25 +156,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TourService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.BL.DAL.services.TourService" />
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.technikumwien.tourplanner.BL.DAL.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="tourplanner.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/at/technikumwien/tourplanner/database/tourplanner.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.TourService" />
       <item itemvalue="Application.PDFGenerator" />
-      <item itemvalue="Application.HelloApplication" />
       <item itemvalue="Application.MediaLibApplication" />
       <item itemvalue="Application.TourPlannerApplication" />
       <item itemvalue="Database Script.tourplanner.sql" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TourService" />
+        <item itemvalue="Application.TourPlannerApplication" />
         <item itemvalue="Database Script.tourplanner.sql" />
         <item itemvalue="Application.PDFGenerator" />
-        <item itemvalue="Application.TourPlannerApplication" />
         <item itemvalue="Application.MediaLibApplication" />
-        <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -194,6 +216,8 @@
       <workItem from="1650626373597" duration="1300000" />
       <workItem from="1651501148997" duration="1934000" />
       <workItem from="1651503443542" duration="2328000" />
+      <workItem from="1654263604804" duration="2132000" />
+      <workItem from="1654334491000" duration="13835000" />
     </task>
     <servers />
   </component>
