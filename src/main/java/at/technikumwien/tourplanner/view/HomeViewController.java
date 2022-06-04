@@ -1,5 +1,7 @@
 package at.technikumwien.tourplanner.view;
 
+import at.technikumwien.tourplanner.BL.services.TourManager;
+import at.technikumwien.tourplanner.BL.services.TourManagerFactory;
 import at.technikumwien.tourplanner.FXMLDependencyInjection;
 import at.technikumwien.tourplanner.TourPlannerApplication;
 import at.technikumwien.tourplanner.config.Configuration;
@@ -19,6 +21,7 @@ import javafx.stage.Stage;
 import lombok.Getter;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Locale;
 import java.util.Objects;
@@ -48,6 +51,8 @@ public class HomeViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TourManager manager = TourManagerFactory.getManager();
+        homeViewModel.setup(manager);
         leftVBoxListViewListItems = FXCollections.observableArrayList("Item 1", "Item 2", "Item 3");
         leftVBoxListViewTours.setItems(leftVBoxListViewListItems);
         topVBoxTextFieldSearch.textProperty().bindBidirectional(homeViewModel.inputProperty());
@@ -76,32 +81,7 @@ public class HomeViewController implements Initializable {
 
     @FXML
     protected void onTopVBoxButtonAddTourClick() {
-        System.out.println("Test1");
-        var tourStage = new Stage();
-        System.out.println("Test2");
-        var loader = new FXMLLoader(HomeViewController.class.getResource("AddTour-view.fxml"));
-
-        System.out.println("Test3");
-        try {
-            Parent root =  (Parent) loader.load();
-            //System.out.println("Test3.5");
-            var scene = new Scene(root);
-            //System.out.println("Test4");
-            AddTourViewController addTourViewController = loader.getController();
-            //if (modify) {
-            //    addTourViewController.initData(manager,currentTour.get());
-            //} else {
-            //    addTourViewController.initData(manager);
-            //}
-            tourStage.setScene(scene);
-            //System.out.println("Test5");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        tourStage.initModality(Modality.APPLICATION_MODAL);
-        System.out.println("Test6");
-        tourStage.show();
-        System.out.println("Test7");
+        homeViewModel.onTopVBoxButtonAddTourClick();
     }
 
     @FXML

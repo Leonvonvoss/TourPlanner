@@ -42,7 +42,7 @@ public class AddTourViewController  extends Application implements Initializable
     @FXML
     public TextField tourDestinationField;
     @FXML
-    public TextField tourDescriptionField;
+    public TextArea tourDescriptionField;
     @FXML
     public ComboBox<String> tourTransportBox;
 
@@ -78,18 +78,16 @@ public class AddTourViewController  extends Application implements Initializable
     }
 
     @FXML
-    public void saveTourEntryButtonClick(ActionEvent actionEvent) {
+    public void saveTourEntryButtonClick() {
         if(viewModel.saveTour()) {
-            Node source = (Node) actionEvent.getSource();
-            var stage  = (Stage) source.getScene().getWindow();
+            Stage stage = (Stage) tourTitleField.getScene().getWindow();
             stage.close();
         }
     }
 
     @FXML
-    public void cancelTourEntryButtonClick(ActionEvent actionEvent) {
-        Node source = (Node) actionEvent.getSource();
-        var stage  = (Stage) source.getScene().getWindow();
+    public void cancelTourEntryButtonClick() {
+        Stage stage = (Stage) tourTitleField.getScene().getWindow();
         stage.close();
     }
 }

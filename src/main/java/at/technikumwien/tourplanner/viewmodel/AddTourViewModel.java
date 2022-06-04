@@ -81,6 +81,7 @@ public class AddTourViewModel {
 
     public void initData(TourManager manager) {
         this.manager = manager;
+        System.out.println("In inititdata: " + this.manager);
     }
 
     public void initData(TourManager manager, Tour currentTour) {
@@ -95,42 +96,63 @@ public class AddTourViewModel {
     }
 
     public boolean saveTour() {
-        return true;
+        if (validateFields()) {
+            //if (manager.getTour() == null)
+            //{
+            this.currentTour = new Tour(tourTitle.get(), tourDescription.get(), tourOrigin.get(), tourDestination.get(), tourTransportation.get());
+            manager.createTour(currentTour);
+            System.out.println("activated");
+           /* }
+            else
+            {
+                currentTour.setName(tourTitle.get());
+                currentTour.setDescription(tourDescription.get());
+                currentTour.setOrigin(tourOrigin.get());
+                currentTour.setDestination(tourDestination.get());
+                currentTour.setModeOfTransportation(tourTransportation.get());
+                manager.modifyTour(currentTour);
+            }
+
+            System.out.println(getTourTitle());*/
+            return true;
+
+        }
+        return false;
     }
 
     //private final Effect invalidEffect = new DropShadow(BlurType.GAUSSIAN, Color.RED, 4, 0.0, 0, 0);
 
-    /*private boolean validateFields() {
+    private boolean validateFields() {
         //logger.log(Level.DEBUG,"val:{}.",tourTransportation.getValue());
         //logger.log(Level.DEBUG,"val:{}.",tourTransportation.get());
         var check = true;
         if(tourTitle.get().isEmpty())
         {
-            tourTitleEffect.set(invalidEffect);
+
             check = false;
         } else { tourTitleEffect.set(null); }
         if(tourOrigin.get().isEmpty())
         {
-            tourOriginEffect.set(invalidEffect);
+
             check = false;
         } else { tourOriginEffect.set(null); }
         if(tourDestination.get().isEmpty())
         {
-            tourDestinationEffect.set(invalidEffect);
+
             check = false;
         } else { tourDestinationEffect.set(null); }
         if(tourDescription.get().isEmpty())
         {
-            tourDescriptionEffect.set(invalidEffect);
+
             check = false;
         } else { tourDescriptionEffect.set(null); }
         if(tourTransportation.getValue() == null)
         {
-            tourTransportationEffect.set(invalidEffect);
+
             check = false;
         } else { tourTransportationEffect.set(null); }
 
         //logger.log(Level.DEBUG, check);
         return check;
-    }*/
+    }
 }

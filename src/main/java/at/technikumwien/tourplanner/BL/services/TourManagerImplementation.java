@@ -31,8 +31,10 @@ public class TourManagerImplementation implements TourManager {
         }
 
         @Override
-        public void createTour(Tour tour) {
-
+        public void createTour(Tour receivedtour) {
+                System.out.println(receivedtour);
+                System.out.println(receivedtour.getName());
+                System.out.println(receivedtour.getDescription());
         }
 
         @Override
