@@ -1,22 +1,36 @@
 package at.technikumwien.tourplanner.view;
 
+import at.technikumwien.tourplanner.BL.services.TourManager;
+import at.technikumwien.tourplanner.BL.services.TourManagerFactory;
+import at.technikumwien.tourplanner.FXMLDependencyInjection;
+import at.technikumwien.tourplanner.TourPlannerApplication;
 import at.technikumwien.tourplanner.config.Configuration;
 import at.technikumwien.tourplanner.viewmodel.HomeViewModel;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 public class HomeViewController implements Initializable {
+
 
     @Getter
     private final HomeViewModel homeViewModel;
@@ -31,11 +45,14 @@ public class HomeViewController implements Initializable {
 
     @FXML private TextField topVBoxTextFieldSearch;
     @FXML private Button topVBoxButtonSearch;
+    @FXML private Button topVBoxButtonAddTour;
     @FXML private ListView<String> leftVBoxListViewTours;
     @FXML private TableView tableView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TourManager manager = TourManagerFactory.getManager();
+        homeViewModel.setup(manager);
         leftVBoxListViewListItems = FXCollections.observableArrayList("Item 1", "Item 2", "Item 3");
         leftVBoxListViewTours.setItems(leftVBoxListViewListItems);
         topVBoxTextFieldSearch.textProperty().bindBidirectional(homeViewModel.inputProperty());
@@ -60,6 +77,11 @@ public class HomeViewController implements Initializable {
             IllegalArgumentException.printStackTrace();
             leftVBoxListViewListItems.add("EMPTY ADDED");
         }
+    }
+
+    @FXML
+    protected void onTopVBoxButtonAddTourClick() {
+        homeViewModel.onTopVBoxButtonAddTourClick();
     }
 
     @FXML
