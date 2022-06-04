@@ -15,7 +15,7 @@ public class TourManagerImplementation implements TourManager {
         @Override
         public void createTourModel(TourModel receivedtour) throws ExecutionException, InterruptedException, JsonProcessingException {
                 var result= ApiClient.getTourAPIData(receivedtour.getLocationfrom(), receivedtour.getLocationto(), receivedtour.getName(), receivedtour.getTransporttype());
-                System.out.println(result);
+                System.out.println("Result: " + result.getValue());
                 System.out.println(receivedtour);
                 System.out.println(receivedtour.getName());
                 System.out.println(receivedtour.getDescription());

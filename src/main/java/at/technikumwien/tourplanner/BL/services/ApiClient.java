@@ -80,9 +80,6 @@ public class ApiClient {
 
             var rootNode  = mapper.readTree(responseBody);
             var routeNode = rootNode.path("route");
-            System.out.println("Distance single " + routeNode.path("distance"));
-        System.out.println("Distance single to string" + routeNode.path("distance").toString());
-        System.out.println("Distance single to Textvalie" + routeNode.path("distance").textValue());
             sessionID = routeNode.path("sessionId").textValue();
             distance = routeNode.path("distance").toString();
             var boundingBoxNode = routeNode.path("boundingBox");
@@ -105,6 +102,7 @@ public class ApiClient {
 
         String fileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new java.util.Date());
         var file = Path.of(imgdir+fileName+"_"+name.replaceAll("[^a-zA-Z0-9äöüÄÖÜß_\\-]", "")+".jpg");
+        System.out.println(file);
         file.toFile().getParentFile().mkdirs();
         CompletableFuture<HttpResponse<Path>> mapResponseFuture = client.sendAsync(mapRequest, HttpResponse.BodyHandlers.ofFile(file,  CREATE, WRITE));
         var mapPath = "";
@@ -112,6 +110,7 @@ public class ApiClient {
         mapPath = mapResponse.body().toString();
 
         System.out.println("Mappath; " + mapPath);
+        System.out.println("Distance final; " + distance);
         return new Pair<>(mapPath,distance);
     }
 
