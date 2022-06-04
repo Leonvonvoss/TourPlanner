@@ -23,3 +23,8 @@
 hs_err_pid*
 
 .idea/workspace.xml
+target/classes/
+target/classes/at/technikumwien/tourplanner/BL/DAL/model/TourLog.class
+target/classes/at/technikumwien/tourplanner/BL/DAL/model/TourModel.class
+target/classes/at/technikumwien/tourplanner/BL/DAL/services/TourService.class
+target/classes/at/technikumwien/tourplanner/view/AddTourViewController.class
