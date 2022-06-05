@@ -15,6 +15,15 @@ import java.util.Optional;
 @AllArgsConstructor
 public class TourDao {
 
+    private static TourDao instance;
+
+    public static TourDao getInstance() {
+        if(instance == null) {
+            instance = new TourDao();
+        }
+        return instance;
+    }
+
     public List<TourModel> getAllTours() {
         ArrayList<TourModel> result = new ArrayList<>();
 
