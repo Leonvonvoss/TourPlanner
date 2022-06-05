@@ -40,12 +40,12 @@ public class HomeViewController implements Initializable {
     @FXML private TextField topVBoxTextFieldSearch;
     @FXML private Button topVBoxButtonSearch;
     @FXML private Button topVBoxButtonAddTour;
-    @FXML public ListView<TourModel> leftVBoxListViewTours;
-    @FXML public TableView tableView;
-    @FXML public ImageView tourImg;
-    @FXML public Label tourName;
-    @FXML public Label tourDescription;
-    @FXML public AnchorPane imgAnchor;
+    @FXML private ListView<TourModel> leftVBoxListViewTours;
+    @FXML private TableView tableView;
+    @FXML private ImageView tourImg;
+    @FXML private Label tourName;
+    @FXML private Label tourDescription;
+    @FXML private AnchorPane imgAnchor;
 
     private final ObjectProperty<TourModel> selectedtour = new SimpleObjectProperty<>();
 
@@ -55,12 +55,13 @@ public class HomeViewController implements Initializable {
         homeViewModel.setup(manager);
         tourImg.fitHeightProperty().bind(imgAnchor.heightProperty());
         tourImg.fitWidthProperty().bind(imgAnchor.widthProperty());
+        tourImg.imageProperty().bindBidirectional(homeViewModel.getTourImg());
         topVBoxTextFieldSearch.textProperty().bindBidirectional(homeViewModel.inputProperty());
         topVBoxButtonSearch.disableProperty().bind(homeViewModel.enabledProperty());
-        tourName.textProperty().bindBidirectional(homeViewModel.getCurrentTourModelName());
-        tourDescription.textProperty().bindBidirectional(homeViewModel.getCurrentTourModelSummary());
+        tourName.textProperty().bind(homeViewModel.getCurrentTourModelName());
+        tourDescription.textProperty().bind(homeViewModel.getTourModelSummary());
         selectedtour.bindBidirectional(homeViewModel.getCurrentTourModel());
-        tableView.setPlaceholder(new Label(". . ."));
+        //tableView.setPlaceholder(new Label(". . ."));
         listener();
         setuplist();
     }
@@ -93,8 +94,9 @@ public class HomeViewController implements Initializable {
 
     @FXML
     protected void onTopVBoxButtonSearchClick() {
+        System.out.println("TourName: " + tourName.textProperty().get());
         System.out.println(homeViewModel.getCurrentTourModelName());
-        System.out.println(homeViewModel.getCurrentTourModelSummary());
+        System.out.println(homeViewModel.getTourModelSummary());
         /*String textInput = topVBoxTextFieldSearch.textProperty().get();
         try {
             if (textInput.isEmpty()) {

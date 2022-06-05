@@ -32,6 +32,7 @@ public class HomeViewModel {
     private final StringProperty tourTransportation = new SimpleStringProperty("");
     private final StringProperty tourName = new SimpleStringProperty("");
     private final StringProperty tourDuration = new SimpleStringProperty("");
+    private StringProperty tourSummary = new SimpleStringProperty("");
     private final ObjectProperty<Image> tourImage = new SimpleObjectProperty<>();
 
     public HomeViewModel() {
@@ -80,33 +81,47 @@ public class HomeViewModel {
 
 
     public void changeTourView() {
-        System.out.println("abc:" + currenTourModel.get().getNameTest());
-        tourDescription.set(currenTourModel.get().getDescription());
-        System.out.println("bfc: " + tourDescription);
         tourName.set(currenTourModel.get().getNameTest());
+        tourDescription.set(currenTourModel.get().getDescription());
         tourOrigin.set(currenTourModel.get().getLocationfrom());
         tourDestination.set(currenTourModel.get().getLocationto());
         tourTransportation.set(currenTourModel.get().getTransporttype());
         tourDistance.set(currenTourModel.get().getTotaldistance());
         tourDuration.set(currenTourModel.get().getTotalduration());
-        System.out.println(currenTourModel);
+        tourSummary.set(this.createTourSummary());
+        System.out.println("Description: " + currenTourModel.get().getDescription());
         try {
             Configuration configuration =Configuration.Instance();
             File dir = new File(configuration.getProperty("imgdir"));
             File[] directoryListing = dir.listFiles();
             if (directoryListing != null) {
+                boolean imgfound = false;
                 for (File child : directoryListing) {
-                    if (child.getName().contains(tourName.toString()))
-                    {
+                    if (child.getName().contains(tourName.get())) {
+                        System.out.println("found " + child.toURI().getClass().getName());
+                        System.out.println("found " + child.toURI());
                         var img = new Image(child.toURI().toString());
+                        System.out.println(img.getUrl());
                         tourImage.set(img);
+                        imgfound = true;
                         break;
                     }
-
+                }
+                if (!imgfound) {
+                    File nodir = new File(configuration.getProperty("noimgfounddir"));
+                    File[] nodirectoryListing = nodir.listFiles();
+                    if (nodirectoryListing != null) {
+                        for (File child : nodirectoryListing) {
+                            var img = new Image(child.toURI().toString());
+                            tourImage.set(img);
+                            break;
+                        }
+                    }
                 }
             } else {
+                var img = new Image(configuration.getProperty("noimgfound"));
+                tourImage.set(img);
                 System.out.println("No Image found");
-                // insert no img found placeholder
             }
         }
         catch (Exception e){
@@ -123,13 +138,25 @@ public class HomeViewModel {
         return tourName;
     }
 
-    public StringProperty getCurrentTourModelSummary() {
-        StringProperty summary = new SimpleStringProperty("From " + tourOrigin.get() + " to " +
-                            tourDestination.get() + " with " +
-                            tourTransportation.get() + "\nDuration: " +
-                            tourDuration.get() + " over " + tourDistance.get() +
-                            "km\nDescription" + tourDescription.get());
-        System.out.println(summary);
-        return summary;
+    public StringProperty getTourModelSummary() {
+        return tourSummary;
     }
+
+    public Property<Image> getTourImg() {
+        return tourImage;
+    }
+
+    public String createTourSummary() {
+        if (tourName.getValue() != "") {
+            System.out.println("opened");
+            String summary ="From " + tourOrigin.get() + " to " +
+                    tourDestination.get() + " with " +
+                    tourTransportation.get() + "\nDuration: " +
+                    tourDuration.get() + " over " + tourDistance.get() +
+                    "km\nDescription: " + tourDescription.get();
+            return summary;
+        }
+        return "";
+    }
+
 }
