@@ -18,6 +18,15 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class TourLogDao {
 
+    private static TourLogDao instance;
+
+    public static TourLogDao getInstance() {
+        if(instance == null) {
+            instance = new TourLogDao();
+        }
+        return instance;
+    }
+
     public Collection<TourLog> getAllTourLogs() {
         ArrayList<TourLog> result = new ArrayList<>();
 
@@ -71,7 +80,7 @@ public class TourLogDao {
         return Optional.empty();
     }
 
-    public Collection<TourLog> getTourLogsOfToursByTourid(TourLog tourLog) {
+    public Collection<TourLog> getTourLogsOfTourByTourid(TourLog tourLog) {
         ArrayList<TourLog> result = new ArrayList<>();
 
         try ( PreparedStatement statement = DBConnection.getInstance().prepareStatement("""
