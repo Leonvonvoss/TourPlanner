@@ -41,7 +41,7 @@ public class TourLogDaoTest {
     @DisplayName("saveTourLogAndCheckIfInDatabaseByTourLogsOfToursByTourid")
     void saveTourLogAndCheckIfInDatabaseByTourLogsOfToursByTourid() {
         if(tourLogDao.saveTourLog(new TourLog(2, 2, "", "Kann ich nur weiterempfehlen, war der Wahnsinn", 1, 5, "03:00:00"))){
-            Collection<TourLog> tourLogModelTest2 = tourLogDao.getTourLogsOfTourByTourid(new TourLog(1, 2));
+            Collection<TourLog> tourLogModelTest2 = tourLogDao.getTourLogsOfToursByTourid(new TourLog(1, 2));
             if(!tourLogModelTest2.isEmpty()) {
                 for (TourLog allTourLogs : tourLogModelTest2) {
                     assertEquals(allTourLogs.getTourid_fk(), 2);
@@ -84,7 +84,7 @@ public class TourLogDaoTest {
     @Order(5)
     @DisplayName("checkUpdatedTourLogIfAssignItTourIdOneWorkedCorrectly")
     void checkUpdatedTourLogIfAssignItTourIdOneWorkedCorrectly() {
-        Collection<TourLog> tourLogModelTest4 = tourLogDao.getTourLogsOfTourByTourid(new TourLog(3, 3));
+        Collection<TourLog> tourLogModelTest4 = tourLogDao.getTourLogsOfToursByTourid(new TourLog(3, 3));
         if(!tourLogModelTest4.isEmpty()) {
             for (TourLog allTourLogs : tourLogModelTest4) {
                 assertEquals(allTourLogs.getTourid_fk(), 3);
@@ -123,7 +123,7 @@ public class TourLogDaoTest {
     @DisplayName("deleteTourLogsOfTourOneByTourIdWithTourLogModel")
     void deleteTourLogsOfTourOneByTourIdWithTourLogModel() {
         if(tourLogDao.deleteTourLogsOfTourByTourId(new TourLog(1, 2))){
-            Collection<TourLog> tourLogModelTest7 = tourLogDao.getTourLogsOfTourByTourid(new TourLog(1, 2));
+            Collection<TourLog> tourLogModelTest7 = tourLogDao.getTourLogsOfToursByTourid(new TourLog(1, 2));
             assertTrue(tourLogModelTest7.isEmpty());
         } else {
             fail("Couldn't delete tourLog in database.");
@@ -135,7 +135,7 @@ public class TourLogDaoTest {
     @DisplayName("deleteTourLogsOfTourOneByTourIdWithTourLogModel")
     void deleteTourLogsOfTourOneByTourIdWithTourModel() {
         if(tourLogDao.deleteTourLogsOfTourByTourId(new TourModel(3))){
-            Collection<TourLog> tourLogModelTest8 = tourLogDao.getTourLogsOfTourByTourid(new TourLog(1, 3));
+            Collection<TourLog> tourLogModelTest8 = tourLogDao.getTourLogsOfToursByTourid(new TourLog(1, 3));
             assertTrue(tourLogModelTest8.isEmpty());
         } else {
             fail("Couldn't delete tourLog in database.");

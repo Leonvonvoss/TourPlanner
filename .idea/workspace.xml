@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63f9004a-a09b-4b23-b6ac-2647f7bda603" name="Changes" comment="" />
+    <list default="true" id="63f9004a-a09b-4b23-b6ac-2647f7bda603" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/test/TourModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b765eaa1-dc1c-4a26-87b0-9590df611df1/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TourPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TourPlanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dao/TourDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dao/TourDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dao/TourLogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/BL/DAL/dao/TourLogDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/test/TourLogDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikumwien/tourplanner/test/TourLogDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/dao/TourDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/dao/TourDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/dao/TourLogDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikumwien/tourplanner/BL/DAL/dao/TourLogDao.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,11 +41,15 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/leonv/Desktop/REPOS/SWEN/TourPlanner&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="at.technikumwien.tourplanner.TourPlannerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="at.technikumwien.tourplanner.test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.TourPlannerApplication">
+    <configuration name="TourPlannerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.TourPlannerApplication" />
       <module name="TourPlanner" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\leonv\javafx-sdk-18\lib&quot; --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="at.technikumwien.tourplanner.*" />
@@ -44,9 +60,76 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TourModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.technikumwien.tourplanner.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.technikumwien.tourplanner.test" />
+      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.test.TourModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourModelTest.checkEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.technikumwien.tourplanner.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.technikumwien.tourplanner.test" />
+      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.test.TourModelTest" />
+      <option name="METHOD_NAME" value="checkEquals" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourModelTest.checkGetName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.technikumwien.tourplanner.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.technikumwien.tourplanner.test" />
+      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.test.TourModelTest" />
+      <option name="METHOD_NAME" value="checkGetName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourModelTest.checkSetName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.technikumwien.tourplanner.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.technikumwien.tourplanner.test" />
+      <option name="MAIN_CLASS_NAME" value="at.technikumwien.tourplanner.test.TourModelTest" />
+      <option name="METHOD_NAME" value="checkSetName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.at.technikumwien.tourplanner.TourPlannerApplication" />
+        <item itemvalue="Application.TourPlannerApplication" />
+        <item itemvalue="JUnit.TourModelTest" />
+        <item itemvalue="JUnit.TourModelTest.checkEquals" />
+        <item itemvalue="JUnit.TourModelTest.checkSetName" />
+        <item itemvalue="JUnit.TourModelTest.checkGetName" />
       </list>
     </recent_temporary>
   </component>
@@ -59,6 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654358707312</updated>
       <workItem from="1654358709204" duration="255000" />
+      <workItem from="1654454701586" duration="1339000" />
     </task>
     <servers />
   </component>

@@ -18,6 +18,15 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class TourLogDao {
 
+    private static TourLogDao instance;
+
+    public static TourLogDao getInstance() {
+        if(instance == null) {
+            instance = new TourLogDao();
+        }
+        return instance;
+    }
+
     public Collection<TourLog> getAllTourLogs() {
         ArrayList<TourLog> result = new ArrayList<>();
 
