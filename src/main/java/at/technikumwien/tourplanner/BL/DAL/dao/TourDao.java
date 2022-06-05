@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -23,7 +24,7 @@ public class TourDao {
         return instance;
     }
 
-    public Collection<TourModel> getAllTours() {
+    public List<TourModel> getAllTours() {
         ArrayList<TourModel> result = new ArrayList<>();
 
         try ( PreparedStatement statement = DBConnection.getInstance().prepareStatement("""

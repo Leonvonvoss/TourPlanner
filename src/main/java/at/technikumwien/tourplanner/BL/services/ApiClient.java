@@ -29,12 +29,11 @@ public class ApiClient {
         throw new IllegalStateException("Utility class");
     }
 
-    public static Pair<String,String> getTourAPIData(String from, String to, String name, String mode) throws ExecutionException, InterruptedException, JsonProcessingException {
+    public static Pair<String,Pair<String, String >> getTourAPIData(String from, String to, String name, String mode) throws ExecutionException, InterruptedException, JsonProcessingException {
         Configuration configuration =Configuration.Instance();
         String key = configuration.getProperty("apikey");
         String imgdir = configuration.getProperty("imgdir");
 
-        // create a client
         var client = HttpClient.newHttpClient();
 
 
@@ -75,6 +74,7 @@ public class ApiClient {
         var sessionID = "";
 
         String distance = "0.0";
+        String duration = "0.0";
 
         var mapper = new ObjectMapper();
 
@@ -82,6 +82,7 @@ public class ApiClient {
             var routeNode = rootNode.path("route");
             sessionID = routeNode.path("sessionId").textValue();
             distance = routeNode.path("distance").toString();
+            duration = routeNode.path("formattedTime").toString();
             var boundingBoxNode = routeNode.path("boundingBox");
             boundingBox += boundingBoxNode.path("lr").path("lat").doubleValue()+",";
             boundingBox += boundingBoxNode.path("lr").path("lng").doubleValue()+",";
@@ -111,7 +112,9 @@ public class ApiClient {
 
         System.out.println("Mappath; " + mapPath);
         System.out.println("Distance final; " + distance);
-        return new Pair<>(mapPath,distance);
+        System.out.println("formattedTime final; " + duration);
+        Pair secondPair = new Pair<>(distance, duration);
+        return new Pair<>(mapPath,secondPair);
     }
 
 }

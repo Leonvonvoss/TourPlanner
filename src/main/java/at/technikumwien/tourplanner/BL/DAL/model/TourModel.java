@@ -45,5 +45,9 @@ public class TourModel {
     public TourModel(String name) {
         this.name = name;
     }
+
+    public String getNameTest() {
+        return this.name;
+    }
 }
 
