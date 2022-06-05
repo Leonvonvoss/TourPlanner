@@ -1,5 +1,6 @@
 package at.technikumwien.tourplanner.BL.managers;
 
+import at.technikumwien.tourplanner.BL.DAL.dao.TourDao;
 import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.services.ApiClient;
@@ -15,10 +16,18 @@ public class TourManagerImplementation implements TourManager {
         @Override
         public void createTourModel(TourModel receivedtour) throws ExecutionException, InterruptedException, JsonProcessingException {
                 var result= ApiClient.getTourAPIData(receivedtour.getLocationfrom(), receivedtour.getLocationto(), receivedtour.getName(), receivedtour.getTransporttype());
-                System.out.println("Result: " + result.getValue());
-                System.out.println(receivedtour);
-                System.out.println(receivedtour.getName());
-                System.out.println(receivedtour.getDescription());
+                String length = result.getValue().getKey();
+                String duration = result.getValue().getValue();
+                receivedtour.setTotaldistance(length);
+                receivedtour.setTotalduration(duration);
+                TourDao tourdao = new TourDao();
+                if (tourdao.saveTour(receivedtour))
+                {
+                        System.out.println("saved tour");
+                }
+                else {
+                        System.out.println("failed to save tour");
+                }
         }
 
         private boolean searchTourLogs(TourModel tour, String searchText) {
@@ -62,6 +71,11 @@ public class TourManagerImplementation implements TourManager {
         }
 
         @Override
+        public List<TourModel> getAllTours() {
+                TourDao tourdao = new TourDao();
+                return tourdao.getAllTours();
+        }
+
         public List<TourLog> getAllTourLogs() {
                 return null;
         }

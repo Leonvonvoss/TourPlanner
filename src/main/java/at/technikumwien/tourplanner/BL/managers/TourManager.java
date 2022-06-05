@@ -17,6 +17,7 @@ public interface TourManager {
     void cloneTourModel(TourModel TourModel);
     void modifyTourModel(TourModel TourModel);
     void deleteTourModel(TourModel TourModel);
+    List<TourModel> getAllTours();
     List<TourModel> search(String searchText);
 
 
