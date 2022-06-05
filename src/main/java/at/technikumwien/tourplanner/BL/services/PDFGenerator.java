@@ -12,38 +12,27 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 
 public class PDFGenerator {
 
-    private static String DEST = "Tour.pdf";
-    public static void main(String[] args) throws IOException {
+    private static String DEST = "TourReport.pdf";
+    public void generateReport() throws IOException {
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(DEST));
         Document document = new Document(pdfDoc);
-        Paragraph loremIpsumHeader = new Paragraph("Lorem Ipsum header...")
+
+        Paragraph headline = new Paragraph("Report : Tours")
                 .setFont(PdfFontFactory.createFont(StandardFonts.HELVETICA))
                 .setFontSize(14)
                 .setBold()
-                .setFontColor(ColorConstants.RED);
-        Paragraph paragraph = new Paragraph();
-        Table table = new Table(3).useAllAvailableWidth();
-        for(int i = 0; i <= 5; i++) {
-            table.addCell("Hallo");
-        }
-        Paragraph imageHeader = new Paragraph("Lorem Ipsum Image ...")
-                .setFont(PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN))
-                .setFontSize(18)
-                .setBold()
-                .setFontColor(ColorConstants.GREEN);
-        document.add(imageHeader);
-        URL resource = TourPlannerApplication.class.getResource("img/menu_close.png");
-        ImageData imageData = ImageDataFactory.create(resource);
-        document.add(new Image(imageData));
-        document.add(loremIpsumHeader);
-        document.add(new Paragraph("LOREM_IPSUM_TEXT"));
-        paragraph.add(table);
-        document.add(paragraph);
+                .setFontColor(ColorConstants.GRAY);
+
+        document.add(headline);
+        document.add(new Paragraph("This report doesn't contain any information about tours, because we didn't have time to implement it."));
+        document.add(new Paragraph("Leon-Vincent von Voss & Klemens Hamburger"));
         document.close();
     }
 }

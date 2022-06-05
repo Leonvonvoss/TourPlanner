@@ -4,9 +4,6 @@ import at.technikumwien.tourplanner.config.Configuration;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.util.Pair;
-import netscape.javascript.JSObject;
-
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;

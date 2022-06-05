@@ -4,6 +4,8 @@ import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.DAL.postgres.DBConnection;
 import lombok.AllArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +21,8 @@ import java.sql.Timestamp;
 public class TourLogDao {
 
     private static TourLogDao instance;
+
+    private static final Logger logger = LogManager.getLogger(TourLogDao.class);
 
     public static TourLogDao getInstance() {
         if(instance == null) {
@@ -48,6 +52,7 @@ public class TourLogDao {
                 ) );
             }
         } catch (SQLException throwables) {
+            logger.error("Error: Selecting tourlogs");
             throwables.printStackTrace();
         }
         return result;
@@ -75,6 +80,7 @@ public class TourLogDao {
                 ) );
             }
         } catch (SQLException throwables) {
+            logger.error("Error: Selecting tourlog");
             throwables.printStackTrace();
         }
         return Optional.empty();
@@ -104,6 +110,7 @@ public class TourLogDao {
                 ) );
             }
         } catch (SQLException throwables) {
+            logger.error("Error: Selecting tourlog");
             throwables.printStackTrace();
         }
         return result;
@@ -127,6 +134,7 @@ public class TourLogDao {
 
             return true;
         } catch (SQLException throwables) {
+            logger.error("Error: Inserting tourlog");
             throwables.printStackTrace();
         }
         return false;
@@ -149,6 +157,7 @@ public class TourLogDao {
 
             return true;
         } catch (SQLException throwables) {
+            logger.error("Error: Updating tourlog");
             throwables.printStackTrace();
         }
         return false;
@@ -164,6 +173,7 @@ public class TourLogDao {
 
             return true;
         } catch (SQLException throwables) {
+            logger.error("Error: Deleting tourlog");
             throwables.printStackTrace();
         }
         return false;
@@ -179,6 +189,7 @@ public class TourLogDao {
 
             return true;
         } catch (SQLException throwables) {
+            logger.error("Error: Deleting tourlogs");
             throwables.printStackTrace();
         }
         return false;
@@ -194,6 +205,7 @@ public class TourLogDao {
 
             return true;
         } catch (SQLException throwables) {
+            logger.error("Error: Deleting tourlogs");
             throwables.printStackTrace();
         }
         return false;

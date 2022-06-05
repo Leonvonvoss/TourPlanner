@@ -3,6 +3,7 @@ package at.technikumwien.tourplanner.view;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.managers.TourManager;
 import at.technikumwien.tourplanner.BL.managers.TourManagerFactory;
+import at.technikumwien.tourplanner.BL.services.PDFGenerator;
 import at.technikumwien.tourplanner.viewmodel.HomeViewModel;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
@@ -20,6 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,7 +36,6 @@ public class HomeViewController implements Initializable {
 
     @FXML private MenuItem menuItemClose;
     @FXML private MenuItem menuItemPDF;
-    @FXML private MenuItem menuItemFile;
     @FXML private MenuItem menuItemAbout;
 
     @FXML private TextField topVBoxTextFieldSearch;
@@ -126,6 +127,24 @@ public class HomeViewController implements Initializable {
         aboutStage.initModality(Modality.WINDOW_MODAL);
         aboutStage.initOwner(borderPane.getScene().getWindow());
         aboutStage.show();
+    }
+
+    @FXML
+    protected void onMenuItemPDFClick()  {
+        PDFGenerator pdfGenerator = new PDFGenerator();
+        try {
+            pdfGenerator.generateReport();
+            Stage aboutStage = new Stage();
+            ReportDialogViewController dialog = new ReportDialogViewController();
+            aboutStage.setScene(new Scene(dialog));
+            aboutStage.setTitle("Report");
+            //aboutStage.initModality(Modality.APPLICATION_MODAL); // <- geht auch so - ist der kürzere Weg
+            aboutStage.initModality(Modality.WINDOW_MODAL);
+            aboutStage.initOwner(borderPane.getScene().getWindow());
+            aboutStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

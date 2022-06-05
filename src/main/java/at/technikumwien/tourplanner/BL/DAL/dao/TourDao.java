@@ -2,7 +2,10 @@ package at.technikumwien.tourplanner.BL.DAL.dao;
 
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.DAL.postgres.DBConnection;
+import at.technikumwien.tourplanner.TourPlannerApplication;
 import lombok.AllArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +19,8 @@ import java.util.Optional;
 public class TourDao {
 
     private static TourDao instance;
+
+    private static final Logger logger = LogManager.getLogger(TourDao.class);
 
     public static TourDao getInstance() {
         if(instance == null) {
@@ -46,6 +51,7 @@ public class TourDao {
                 ) );
             }
         } catch (SQLException throwables) {
+            logger.error("Error: Selecting tours");
             throwables.printStackTrace();
         }
         return result;
@@ -74,6 +80,7 @@ public class TourDao {
                 ) );
             }
         } catch (SQLException throwables) {
+            logger.error("Error: Selecting tour");
             throwables.printStackTrace();
         }
         return Optional.empty();
@@ -104,6 +111,7 @@ public class TourDao {
                 ) );
             }
         } catch (SQLException throwables) {
+            logger.error("Error: Selecting tour");
             throwables.printStackTrace();
         }
         return result;
@@ -136,6 +144,7 @@ public class TourDao {
                 ) );
             }
         } catch (SQLException throwables) {
+            logger.error("Error: Selecting tour");
             throwables.printStackTrace();
         }
         return result;
@@ -158,6 +167,7 @@ public class TourDao {
 
             return true;
         } catch (SQLException throwables) {
+            logger.error("Error: Inserting tour");
             throwables.printStackTrace();
         }
         return false;
@@ -182,6 +192,7 @@ public class TourDao {
 
             return true;
         } catch (SQLException throwables) {
+            logger.error("Error: Updating tour");
             throwables.printStackTrace();
         }
         return false;
@@ -200,6 +211,7 @@ public class TourDao {
                 statement.execute();
 
             } catch (SQLException throwables) {
+                logger.error("Error: Deleting tour");
                 throwables.printStackTrace();
             }
             return true;

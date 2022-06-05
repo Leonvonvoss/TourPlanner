@@ -37,9 +37,9 @@
                         </MenuItem>
                      </items>
                   </Menu>
-                  <Menu fx:id="menuExport" mnemonicParsing="false" text="%Menu_Edit">
+                  <Menu fx:id="menuExport" mnemonicParsing="false" text="%Menu_Export">
                      <items>
-                        <MenuItem fx:id="menuItemPDF" mnemonicParsing="false" text="%Menu_File_Export_PDF">
+                        <MenuItem fx:id="menuItemPDF" mnemonicParsing="false" onAction="#onMenuItemPDFClick" text="%Menu_File_Export_PDF">
                            <graphic>
                               <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -47,19 +47,6 @@
                                  </image>
                               </ImageView>
                            </graphic></MenuItem>
-                        <MenuItem fx:id="menuItemFile" mnemonicParsing="false" text="%Menu_File_Export_File">
-                           <graphic>
-                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/menu_file.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic></MenuItem>
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="%Menu_Options">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="%Menu_Options_Language" />
                      </items>
                   </Menu>
                   <Menu fx:id="menuHelp" mnemonicParsing="false" text="%Menu_Help">
