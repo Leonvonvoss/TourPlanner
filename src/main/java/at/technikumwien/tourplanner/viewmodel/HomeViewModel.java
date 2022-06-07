@@ -1,8 +1,10 @@
 package at.technikumwien.tourplanner.viewmodel;
 
+import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.managers.TourManager;
 import at.technikumwien.tourplanner.config.Configuration;
+import at.technikumwien.tourplanner.view.AddLogViewController;
 import at.technikumwien.tourplanner.view.AddTourViewController;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
@@ -16,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 public class HomeViewModel {
 
@@ -23,6 +26,7 @@ public class HomeViewModel {
     private final BooleanProperty enabled = new SimpleBooleanProperty();
     private final ObjectProperty<TourModel> currenTourModel = new SimpleObjectProperty<>();
     private ObservableList<TourModel> tourList;
+    private ObservableList<TourLog> logList;
     private TourManager manager;
 
     private final StringProperty tourDescription = new SimpleStringProperty("");
@@ -53,8 +57,9 @@ public class HomeViewModel {
 
     public void onTopVBoxButtonAddTourClick() {
         var tourStage = new Stage();
+        Configuration configuration =Configuration.Instance();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("at/technikumwien/tourplanner/fxml/AddTour-View.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource(configuration.getProperty("addTour")));
         try {
             Parent root =  (Parent) loader.load();
             var scene = new Scene(root);
@@ -68,10 +73,34 @@ public class HomeViewModel {
         tourStage.show();
     }
 
+    public void onTopVBoxButtonAddLogClick() {
+        var tourStage = new Stage();
+        Configuration configuration =Configuration.Instance();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource(configuration.getProperty("addLog")));
+        try {
+            Parent root =  (Parent) loader.load();
+            var scene = new Scene(root);
+            AddLogViewController addLogViewController = loader.getController();
+            addLogViewController.initData(manager, currenTourModel.get().getTourId());
+            tourStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        tourStage.initModality(Modality.APPLICATION_MODAL);
+        tourStage.show();
+    }
+
     public void setuplist() {
         tourList = FXCollections.observableArrayList();
         tourList.clear();
         tourList.addAll(manager.getAllTours());
+    }
+
+    public void setupLogList() {
+        logList = FXCollections.observableArrayList();
+        logList.clear();
+        logList.addAll(manager.getTourLogs(currenTourModel.get().getTourId()));
     }
 
     public ObjectProperty<TourModel> getCurrentTourModel() {
@@ -89,7 +118,6 @@ public class HomeViewModel {
         tourDistance.set(currenTourModel.get().getTotaldistance());
         tourDuration.set(currenTourModel.get().getTotalduration());
         tourSummary.set(this.createTourSummary());
-        System.out.println("Description: " + currenTourModel.get().getDescription());
         try {
             Configuration configuration =Configuration.Instance();
             File dir = new File(configuration.getProperty("imgdir"));
@@ -98,10 +126,7 @@ public class HomeViewModel {
                 boolean imgfound = false;
                 for (File child : directoryListing) {
                     if (child.getName().contains(tourName.get())) {
-                        System.out.println("found " + child.toURI().getClass().getName());
-                        System.out.println("found " + child.toURI());
                         var img = new Image(child.toURI().toString());
-                        System.out.println(img.getUrl());
                         tourImage.set(img);
                         imgfound = true;
                         break;
@@ -133,8 +158,11 @@ public class HomeViewModel {
         return tourList;
     }
 
+    public ObservableList<TourLog> getLogList() {
+        return logList;
+    }
+
     public StringProperty getCurrentTourModelName() {
-        System.out.println(tourName);
         return tourName;
     }
 
@@ -148,7 +176,6 @@ public class HomeViewModel {
 
     public String createTourSummary() {
         if (tourName.getValue() != "") {
-            System.out.println("opened");
             String summary ="From " + tourOrigin.get() + " to " +
                     tourDestination.get() + " with " +
                     tourTransportation.get() + "\nDuration: " +
@@ -159,4 +186,9 @@ public class HomeViewModel {
         return "";
     }
 
+    public TourModel selectRandomTour() {
+        Random rand = new Random();
+        int numb = rand.nextInt(tourList.size());
+        return tourList.get(numb);
+    }
 }

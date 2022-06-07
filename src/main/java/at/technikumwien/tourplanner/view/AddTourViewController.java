@@ -5,8 +5,10 @@ import at.technikumwien.tourplanner.BL.managers.TourManager;
 import at.technikumwien.tourplanner.viewmodel.AddTourViewModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -41,19 +43,13 @@ public class AddTourViewController  extends Application implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tourTitleField.textProperty().bindBidirectional(viewModel.getTourTitle());
-        //tourTitleField.effectProperty().bindBidirectional(viewModel.getTourTitleEffect());
         tourStartField.textProperty().bindBidirectional(viewModel.getTourOrigin());
-        //tourStartField.effectProperty().bindBidirectional(viewModel.getTourOriginEffect());
         tourDestinationField.textProperty().bindBidirectional(viewModel.getTourDestination());
-        //tourDestinationField.effectProperty().bindBidirectional(viewModel.getTourDestinationEffect());
         tourDescriptionField.textProperty().bindBidirectional(viewModel.getTourDescription());
-        //tourDescriptionField.effectProperty().bindBidirectional(viewModel.getTourDescriptionEffect());
         tourTransportBox.valueProperty().bindBidirectional(viewModel.getTourTransportation());
-        //tourTransportBox.effectProperty().bindBidirectional(viewModel.getTourTransportationEffect());
 
         tourTransportBox.setItems(viewModel.getTransportOptions());
 
-        //logger.log(Level.DEBUG, "Tour Designer initiated");
     }
 
     public void initData(TourManager manager) {
@@ -66,9 +62,10 @@ public class AddTourViewController  extends Application implements Initializable
 
     @FXML
 
-    public void saveTourEntryButtonClick() throws ExecutionException, InterruptedException, JsonProcessingException {
+    public void saveTourEntryButtonClick(ActionEvent actionEvent) throws ExecutionException, InterruptedException, JsonProcessingException {
         if(viewModel.saveTour()) {
-            Stage stage = (Stage) tourTitleField.getScene().getWindow();
+            Node source = (Node) actionEvent.getSource();
+            var stage  = (Stage) source.getScene().getWindow();
             stage.close();
         }
     }

@@ -1,6 +1,7 @@
 package at.technikumwien.tourplanner.BL.managers;
 
 import at.technikumwien.tourplanner.BL.DAL.dao.TourDao;
+import at.technikumwien.tourplanner.BL.DAL.dao.TourLogDao;
 import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.services.ApiClient;
@@ -82,7 +83,8 @@ public class TourManagerImplementation implements TourManager {
 
         @Override
         public List<TourLog> getTourLogs(int TourModelId) {
-                return null;
+                TourLogDao tourLogDao = new TourLogDao();
+                return tourLogDao.getTourLogsOfToursByTouridint(TourModelId);
         }
 
         @Override
@@ -92,6 +94,8 @@ public class TourManagerImplementation implements TourManager {
 
         @Override
         public void createTourLog(TourLog tourLog) {
+                TourLogDao tourLogDao = new TourLogDao();
+                tourLogDao.saveTourLog(tourLog);
 
         }
 

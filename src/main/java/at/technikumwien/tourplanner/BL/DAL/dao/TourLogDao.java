@@ -9,11 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Optional;
+import java.util.*;
 import java.sql.Timestamp;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 public class TourLogDao {
@@ -40,7 +38,7 @@ public class TourLogDao {
                 result.add( new TourLog(
                         resultSet.getInt(1),
                         resultSet.getInt( 2 ),
-                        resultSet.getString( 3 ),
+                        resultSet.getDate( 3 ),
                         resultSet.getString( 4 ),
                         resultSet.getInt( 5 ),
                         resultSet.getInt( 6 ),
@@ -67,7 +65,7 @@ public class TourLogDao {
                 return Optional.of( new TourLog(
                         resultSet.getInt(1),
                         resultSet.getInt( 2 ),
-                        resultSet.getString( 3 ),
+                        resultSet.getDate( 3 ),
                         resultSet.getString( 4 ),
                         resultSet.getInt( 5 ),
                         resultSet.getInt( 6 ),
@@ -96,7 +94,7 @@ public class TourLogDao {
                 result.add( new TourLog(
                         resultSet.getInt(1),
                         resultSet.getInt( 2 ),
-                        resultSet.getString( 3 ),
+                        resultSet.getDate( 3 ),
                         resultSet.getString( 4 ),
                         resultSet.getInt( 5 ),
                         resultSet.getInt( 6 ),
@@ -107,6 +105,35 @@ public class TourLogDao {
             throwables.printStackTrace();
         }
         return result;
+    }
+
+    public List<TourLog> getTourLogsOfToursByTouridint(int tourLogid) {
+        ArrayList<TourLog> result = new ArrayList<>();
+
+        try ( PreparedStatement statement = DBConnection.getInstance().prepareStatement("""
+                SELECT *
+                FROM tourlog
+                WHERE tourid_fk = ?;
+                """)
+        ) {
+            statement.setInt(1, tourLogid);
+
+            ResultSet resultSet = statement.executeQuery();
+            while( resultSet.next() ) {
+                result.add( new TourLog(
+                        resultSet.getInt(1),
+                        resultSet.getInt( 2 ),
+                        resultSet.getDate( 3 ),
+                        resultSet.getString( 4 ),
+                        resultSet.getInt( 5 ),
+                        resultSet.getInt( 6 ),
+                        resultSet.getString( 7 )
+                ) );
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result.stream().collect(Collectors.toList());
     }
 
     public boolean saveTourLog(TourLog tourLog) {

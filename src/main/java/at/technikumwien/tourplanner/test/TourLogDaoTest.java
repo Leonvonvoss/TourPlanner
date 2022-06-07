@@ -5,7 +5,9 @@ import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import org.junit.jupiter.api.*;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,7 +25,10 @@ public class TourLogDaoTest {
     @Order(1)
     @DisplayName("saveTourLogAndCheckIfInDatabaseByLogId")
     void saveTourLogAndCheckIfInDatabaseByLogId() {
-        if(tourLogDao.saveTourLog(new TourLog(1, 2, "", "Super Tour! Kann ich nur weiterempfehlen", 1, 5, "02:00:00"))){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2018, 11, 31, 59, 59, 59);
+        Date date = calendar.getTime();
+        if(tourLogDao.saveTourLog(new TourLog(1, 2, date, "Super Tour! Kann ich nur weiterempfehlen", 1, 5, "02:00:00"))){
             Optional<TourLog> tourLogModelTest1 = tourLogDao.getTourLogByLogId(new TourLog(1));
             if(tourLogModelTest1.isPresent()) {
                 assertEquals(tourLogModelTest1.get().getComment(), "Super Tour! Kann ich nur weiterempfehlen");
@@ -40,7 +45,10 @@ public class TourLogDaoTest {
     @Order(2)
     @DisplayName("saveTourLogAndCheckIfInDatabaseByTourLogsOfToursByTourid")
     void saveTourLogAndCheckIfInDatabaseByTourLogsOfToursByTourid() {
-        if(tourLogDao.saveTourLog(new TourLog(2, 2, "", "Kann ich nur weiterempfehlen, war der Wahnsinn", 1, 5, "03:00:00"))){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2018, 11, 31, 59, 59, 59);
+        Date date = calendar.getTime();
+        if(tourLogDao.saveTourLog(new TourLog(2, 2, date, "Kann ich nur weiterempfehlen, war der Wahnsinn", 1, 5, "03:00:00"))){
             Collection<TourLog> tourLogModelTest2 = tourLogDao.getTourLogsOfToursByTourid(new TourLog(1, 2));
             if(!tourLogModelTest2.isEmpty()) {
                 for (TourLog allTourLogs : tourLogModelTest2) {
@@ -58,7 +66,10 @@ public class TourLogDaoTest {
     @Order(3)
     @DisplayName("saveTourLogAndCheckIfInDatabaseByGetAllTourLogs")
     void saveTourLogAndCheckIfInDatabaseByGetAllTourLogs() {
-        if(tourLogDao.saveTourLog(new TourLog(3, 2, "", "Super nice Tour! Komme nächstes Jahr Wieder", 4, 5, "04:00:00"))){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2018, 11, 31, 59, 59, 59);
+        Date date = calendar.getTime();
+        if(tourLogDao.saveTourLog(new TourLog(3, 2, date, "Super nice Tour! Komme nächstes Jahr Wieder", 4, 5, "04:00:00"))){
             Collection<TourLog> tourLogModelTest3 = tourLogDao.getAllTourLogs();
             if(!tourLogModelTest3.isEmpty()) {
                 for (TourLog allTourLogs : tourLogModelTest3) {
@@ -77,7 +88,10 @@ public class TourLogDaoTest {
     @Order(4)
     @DisplayName("updateTourLogNumberThreeAssignItTourIdOne")
     void updateTourLogNumberThreeAssignItTourIdOne() {
-        assertTrue(tourLogDao.updateTourLogById(new TourLog(3, 3, "", "Super nice Tour! Komme nächstes Jahr Wieder", 4, 5, "04:00:00")));
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2018, 11, 31, 59, 59, 59);
+        Date date = calendar.getTime();
+        assertTrue(tourLogDao.updateTourLogById(new TourLog(3, 3, date, "Super nice Tour! Komme nächstes Jahr Wieder", 4, 5, "04:00:00")));
     }
 
     @Test
@@ -99,7 +113,10 @@ public class TourLogDaoTest {
     @Order(6)
     @DisplayName("saveNewTourInDatabaseAndDeleteThisNewTourLogById")
     void saveNewTourInDatabaseAndDeleteThisNewTourLogById() {
-        if(tourLogDao.saveTourLog(new TourLog(4, 5, "", "Eine Traumtour!", 1, 5, "12:00:00"))){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2018, 11, 31, 59, 59, 59);
+        Date date = calendar.getTime();
+        if(tourLogDao.saveTourLog(new TourLog(4, 5, date, "Eine Traumtour!", 1, 5, "12:00:00"))){
             Optional<TourLog> tourLogModelTest5 = tourLogDao.getTourLogByLogId(new TourLog(4));
             if(tourLogModelTest5.isPresent()) {
                 assertEquals(tourLogModelTest5.get().getComment(), "Eine Traumtour!");
