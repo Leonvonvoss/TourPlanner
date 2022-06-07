@@ -1,11 +1,15 @@
 package at.technikumwien.tourplanner.BL.DAL.postgres;
 
 import at.technikumwien.tourplanner.config.Configuration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.Closeable;
 import java.sql.*;
 
 public class DBConnection implements Closeable {
+
+    private static final Logger logger = LogManager.getLogger(DBConnection.class);
 
     private static DBConnection instance;
     private Connection connection;
@@ -37,6 +41,7 @@ public class DBConnection implements Closeable {
             this.password = configuration.getProperty("password");
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
+            logger.error("Error: PostgresSQL JDBC driver not found");
             System.err.println("PostgresSQL JDBC driver not found");
             e.printStackTrace();
         }
@@ -47,6 +52,7 @@ public class DBConnection implements Closeable {
             try {
                 connection = DBConnection.getInstance().connect();
             } catch (SQLException throwables) {
+                logger.error("Error: Connecting to database");
                 throwables.printStackTrace();
             }
         }
@@ -77,6 +83,7 @@ public class DBConnection implements Closeable {
             statement.execute(sql);
             return true;
         } catch (SQLException e) {
+            logger.error("Error: Something wrong with the sql statement");
             if( !ignoreIfFails )
                 throw e;
             return false;
@@ -89,6 +96,7 @@ public class DBConnection implements Closeable {
             try {
                 connection.close();
             } catch (SQLException throwables) {
+                logger.error("Error: Closing database connection");
                 throwables.printStackTrace();
             }
             connection = null;

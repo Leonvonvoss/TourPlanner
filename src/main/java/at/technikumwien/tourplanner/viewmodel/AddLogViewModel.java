@@ -4,16 +4,13 @@ import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.managers.TourManager;
 import javafx.beans.property.*;
 import javafx.scene.control.Alert;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
 public class AddLogViewModel {
-    private static final Logger logger = LogManager.getLogger(AddLogViewModel.class);
 
     private final ObjectProperty<Date> logDate = new SimpleObjectProperty<>();
     private final StringProperty logDuration = new SimpleStringProperty("");
@@ -71,7 +68,6 @@ public class AddLogViewModel {
             check = false;
         }
 
-        logger.log(Level.DEBUG, check);
         return check;
     }
 

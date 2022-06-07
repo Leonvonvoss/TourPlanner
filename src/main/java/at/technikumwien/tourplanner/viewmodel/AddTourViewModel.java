@@ -9,13 +9,14 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import org.apache.logging.log4j.LogManager;
+import org.slf4j.event.Level;
 
 import java.time.LocalDate;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.Logger;
 
 public class AddTourViewModel {
-
-    //private static final Logger logger = LogManager.getLogger(TourDesignerWindowViewModel.class);
 
     private final StringProperty tourTitle = new SimpleStringProperty("");
     private final StringProperty tourOrigin = new SimpleStringProperty("");
@@ -39,7 +40,6 @@ public class AddTourViewModel {
                     "On Foot",
                     "Motor Vehicle"
             );
-    private static final String LOC_REGEX = "[^a-zA-Z0-9äöüÄÖÜß_,\\- ]";
 
     public ObservableList<String> getTransportOptions() {
         return transportOptions;
@@ -90,17 +90,6 @@ public class AddTourViewModel {
         //System.out.println("In inititdata: " + this.manager);
     }
 
-    public void initData(TourManager manager, TourModel currentTour) {
-        this.manager = manager;
-        this.currentTour = currentTour;
-
-        tourTitle.set(currentTour.getName());
-        tourOrigin.set(currentTour.getLocationfrom());
-        tourDestination.set(currentTour.getLocationto());
-        tourDescription.set(currentTour.getDescription());
-        tourTransportation.set(currentTour.getTransporttype());
-    }
-
     public boolean saveTour() throws ExecutionException, InterruptedException, JsonProcessingException {
         if (validateFields()) {
             this.currentTour = new TourModel(tourTitle.get(), tourDescription.get(), tourOrigin.get(), tourDestination.get(), tourTransportation.get());
@@ -115,13 +104,7 @@ public class AddTourViewModel {
         return false;
     }
 
-
-
-    //private final Effect invalidEffect = new DropShadow(BlurType.GAUSSIAN, Color.RED, 4, 0.0, 0, 0);
-
     private boolean validateFields() {
-        //logger.log(Level.DEBUG,"val:{}.",tourTransportation.getValue());
-        //logger.log(Level.DEBUG,"val:{}.",tourTransportation.get());
         var check = true;
         if(tourTitle.get().isEmpty())
         {
@@ -149,7 +132,6 @@ public class AddTourViewModel {
             check = false;
         } else { tourTransportationEffect.set(null); }
 
-        //logger.log(Level.DEBUG, check);
         return check;
     }
 

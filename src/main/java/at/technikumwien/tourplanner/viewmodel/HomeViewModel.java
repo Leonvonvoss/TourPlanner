@@ -15,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.slf4j.event.Level;
 
 import java.io.File;
 import java.io.IOException;
@@ -150,7 +152,7 @@ public class HomeViewModel {
             }
         }
         catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 

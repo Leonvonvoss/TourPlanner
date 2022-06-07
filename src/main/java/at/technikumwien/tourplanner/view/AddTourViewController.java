@@ -13,6 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +21,6 @@ import java.util.concurrent.ExecutionException;
 
 public class AddTourViewController  extends Application implements Initializable {
 
-    //private static final Logger logger = LogManager.getLogger(AddTourViewController.class);
 
     private final AddTourViewModel viewModel = new AddTourViewModel();
 
