@@ -80,7 +80,7 @@
                <items>
                   <Button fx:id="topVBoxButtonAddTour" mnemonicParsing="false" onAction="#onTopVBoxButtonAddTourClick" text="Add Tour" />
                   <TextField fx:id="topVBoxTextFieldSearch" alignment="CENTER" text="%SearchBar_SearchTextfield" />
-                  <Button fx:id="topVBoxButtonSearch" mnemonicParsing="false" onAction="#onTopVBoxButtonSearchClick" text="%SearchBar_SearchButton" />
+                  <Button fx:id="topVBoxButtonSearch" mnemonicParsing="false" onAction="#onTopVBoxButtonSearchClick" text="Zufallige Tour" />
                </items>
             </SplitPane>
          </children>
@@ -109,19 +109,19 @@
             </SplitPane>
             <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0">
               <items>
-                <AnchorPane fx:id="imgAnchor" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane fx:id="imgAnchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
                         <ImageView fx:id="tourImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="127.0" prefWidth="347.0">
+                        <SplitPane dividerPositions="0.5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="127.0" prefWidth="347.0">
                           <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
                                     <Label fx:id="tourContent" />
-                                    <Button fx:id="topVBoxButtonAddLog" alignment="CENTER" mnemonicParsing="false" text="Add Log" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                    <Button fx:id="topVBoxButtonAddLog" alignment="CENTER" mnemonicParsing="false" onAction="#onTopVBoxButtonAddLogClick" text="Add Log" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -135,12 +135,13 @@
                   </AnchorPane>
               </items>
             </SplitPane>
-            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="leftVBoxLogViewLogs" prefHeight="200.0" prefWidth="200.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="%Text_TableView_Date" />
-                  <TableColumn prefWidth="75.0" text="%Text_TableView_Duration" />
-                  <TableColumn prefWidth="75.0" text="%Text_TableView_Distance" />
-                  <TableColumn prefWidth="272.6666564941406" text="..." />
+                  <TableColumn fx:id="logDate" prefWidth="73.60010528564453" text="Date" />
+                  <TableColumn fx:id="logTime" prefWidth="62.800048828125" text="Time" />
+                  <TableColumn fx:id="logDifficulty" prefWidth="76.800048828125" text="Difficulty" />
+                  <TableColumn fx:id="logRating" prefWidth="72.79998779296875" text="Rating" />
+                  <TableColumn fx:id="logComment" prefWidth="213.19998168945312" text="Comment" />
                </columns>
             </TableView>
          </children>

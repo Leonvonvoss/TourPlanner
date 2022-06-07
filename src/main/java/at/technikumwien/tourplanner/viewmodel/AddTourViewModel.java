@@ -8,7 +8,9 @@ import com.sun.scenario.effect.Effect;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
+import java.time.LocalDate;
 import java.util.concurrent.ExecutionException;
 
 public class AddTourViewModel {
@@ -85,7 +87,7 @@ public class AddTourViewModel {
 
     public void initData(TourManager manager) {
         this.manager = manager;
-        System.out.println("In inititdata: " + this.manager);
+        //System.out.println("In inititdata: " + this.manager);
     }
 
     public void initData(TourManager manager, TourModel currentTour) {
@@ -101,25 +103,14 @@ public class AddTourViewModel {
 
     public boolean saveTour() throws ExecutionException, InterruptedException, JsonProcessingException {
         if (validateFields()) {
-            //if (manager.getTour() == null)
-            //{
             this.currentTour = new TourModel(tourTitle.get(), tourDescription.get(), tourOrigin.get(), tourDestination.get(), tourTransportation.get());
             manager.createTourModel(currentTour);
-            System.out.println("activated");
-           /* }
-            else
-            {
-                currentTour.setName(tourTitle.get());
-                currentTour.setDescription(tourDescription.get());
-                currentTour.setOrigin(tourOrigin.get());
-                currentTour.setDestination(tourDestination.get());
-                currentTour.setModeOfTransportation(tourTransportation.get());
-                manager.modifyTour(currentTour);
-            }
-
-            System.out.println(getTourTitle());
-            return true;
-*/
+        }
+        else {
+            var alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Please fill out all required fields correctly");
+            alert.show();
+            return false;
         }
         return false;
     }
@@ -161,4 +152,5 @@ public class AddTourViewModel {
         //logger.log(Level.DEBUG, check);
         return check;
     }
+
 }

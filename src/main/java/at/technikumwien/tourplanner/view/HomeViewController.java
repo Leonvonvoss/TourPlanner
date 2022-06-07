@@ -1,5 +1,6 @@
 package at.technikumwien.tourplanner.view;
 
+import at.technikumwien.tourplanner.BL.DAL.model.TourLog;
 import at.technikumwien.tourplanner.BL.DAL.model.TourModel;
 import at.technikumwien.tourplanner.BL.managers.TourManager;
 import at.technikumwien.tourplanner.BL.managers.TourManagerFactory;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -39,13 +41,23 @@ public class HomeViewController implements Initializable {
 
     @FXML private TextField topVBoxTextFieldSearch;
     @FXML private Button topVBoxButtonSearch;
-    @FXML private Button topVBoxButtonAddTour;
     @FXML private ListView<TourModel> leftVBoxListViewTours;
-    @FXML private TableView tableView;
+    @FXML private TableView<TourLog> leftVBoxLogViewLogs;
     @FXML private ImageView tourImg;
     @FXML private Label tourName;
     @FXML private Label tourDescription;
     @FXML private AnchorPane imgAnchor;
+
+    @FXML
+    public TableColumn<Object, Object> logDate;
+    @FXML
+    public TableColumn<Object, Object> logTime;
+    @FXML
+    public TableColumn<Object, Object> logDifficulty;
+    @FXML
+    public TableColumn<Object, Object> logRating;
+    @FXML
+    public TableColumn<Object, Object> logComment;
 
     private final ObjectProperty<TourModel> selectedtour = new SimpleObjectProperty<>();
 
@@ -57,13 +69,12 @@ public class HomeViewController implements Initializable {
         tourImg.fitWidthProperty().bind(imgAnchor.widthProperty());
         tourImg.imageProperty().bindBidirectional(homeViewModel.getTourImg());
         topVBoxTextFieldSearch.textProperty().bindBidirectional(homeViewModel.inputProperty());
-        topVBoxButtonSearch.disableProperty().bind(homeViewModel.enabledProperty());
         tourName.textProperty().bind(homeViewModel.getCurrentTourModelName());
         tourDescription.textProperty().bind(homeViewModel.getTourModelSummary());
         selectedtour.bindBidirectional(homeViewModel.getCurrentTourModel());
-        //tableView.setPlaceholder(new Label(". . ."));
         listener();
         setuplist();
+        setupLogTable();
     }
 
     private void listener() {
@@ -72,6 +83,7 @@ public class HomeViewController implements Initializable {
                 if (newValue != null) {
                     selectedtour.set(newValue);
                     homeViewModel.changeTourView();
+                    this.loadLogs();
                 }
             }
             catch (Exception e) {
@@ -84,8 +96,20 @@ public class HomeViewController implements Initializable {
 
     private void setuplist() {
         homeViewModel.setuplist();
-        System.out.println(homeViewModel.getTourList());
         leftVBoxListViewTours.setItems(homeViewModel.getTourList());
+    }
+
+    private void loadLogs() {
+        homeViewModel.setupLogList();
+        leftVBoxLogViewLogs.setItems(homeViewModel.getLogList());
+    }
+
+    private void setupLogTable() {
+        logDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        //logTime.setCellValueFactory(new PropertyValueFactory<>("duration"));
+        logRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        logDifficulty.setCellValueFactory(new PropertyValueFactory<>("difficulty"));
+        //logComment.setCellValueFactory(new PropertyValueFactory<>("report"));
     }
 
     public HomeViewController(HomeViewModel homeViewModel) {
@@ -94,34 +118,32 @@ public class HomeViewController implements Initializable {
 
     @FXML
     protected void onTopVBoxButtonSearchClick() {
-        System.out.println("TourName: " + tourName.textProperty().get());
-        System.out.println(homeViewModel.getCurrentTourModelName());
-        System.out.println(homeViewModel.getTourModelSummary());
-        /*String textInput = topVBoxTextFieldSearch.textProperty().get();
-        try {
-            if (textInput.isEmpty()) {
-                throw new IllegalArgumentException("Empty text input!");
-            }
-            leftVBoxListViewListItems.add(textInput);
-            leftVBoxListViewTours.getSelectionModel().selectLast();
-        } catch (IllegalArgumentException IllegalArgumentException) {
-            IllegalArgumentException.printStackTrace();
-            leftVBoxListViewListItems.add("EMPTY ADDED");
-        }*/
+        selectedtour.set(homeViewModel.selectRandomTour());
+        homeViewModel.changeTourView();
+        this.loadLogs();
     }
 
     @FXML
     protected void onTopVBoxButtonAddTourClick() {
         homeViewModel.onTopVBoxButtonAddTourClick();
         leftVBoxListViewTours.setItems(homeViewModel.getTourList());
+        leftVBoxListViewTours.refresh();
     }
+
+    @FXML
+    protected void onTopVBoxButtonAddLogClick() {
+        homeViewModel.onTopVBoxButtonAddLogClick();
+        leftVBoxListViewTours.setItems(homeViewModel.getTourList());
+        leftVBoxListViewTours.refresh();
+    }
+
+
 
     @FXML
     protected void onMenuItemAboutClick() {
         Stage aboutStage = new Stage();
         HelpDialogViewController dialog = new HelpDialogViewController();
         aboutStage.setScene(new Scene(dialog));
-        aboutStage.setTitle("Help");
         //aboutStage.initModality(Modality.APPLICATION_MODAL); // <- geht auch so - ist der kürzere Weg
         aboutStage.initModality(Modality.WINDOW_MODAL);
         aboutStage.initOwner(borderPane.getScene().getWindow());
